@@ -23,14 +23,17 @@
      5. НАВЫКИ
         → <section class="block" id="pm-skills"> и support-skills
 
-     6. ОБРАЗОВАНИЕ И КУРСЫ
+     6. ЗАДАЧИ И КЕЙС
+        → <section class="block" id="pm-projects"> и support-projects
+
+     7. ОБРАЗОВАНИЕ И КУРСЫ
         → <section class="block" id="pm-education"> и support-education
 
-     7. КОНТАКТЫ
+     8. КОНТАКТЫ
         → <section class="block" id="pm-contact"> и support-contact
         → телефон убран, оставлены email, Telegram, VK
 
-     8. ЦИФРОВЫЕ БЛОКИ В HERO (7+ лет, 3 года, 10 человек)
+     9. ЦИФРОВЫЕ БЛОКИ В HERO (7+ лет, 3 года, 10 человек)
         → <div class="highlights">
 
      ВАЖНО: Не удаляйте классы (class="...") и id — они отвечают
@@ -50,16 +53,14 @@
 <meta property="og:type" content="profile" />
 <meta name="twitter:card" content="summary" />
 
-<!-- Favicon: SVG-иконка «ИО» прямо в коде. Можно заменить на свой файл: -->
-<!-- <link rel="icon" type="image/png" href="favicon.png" /> -->
+<!-- Favicon: SVG-иконка «ИО» прямо в коде -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232f6df6'/><text x='50' y='68' font-family='Arial' font-size='52' font-weight='bold' fill='white' text-anchor='middle'>ИО</text></svg>" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- СКРИПТ ТЕМЫ: срабатывает ДО отрисовки, чтобы не было вспышки белым.
-     Если пользуетесь светлой темой постоянно — не трогайте. -->
+<!-- СКРИПТ ТЕМЫ: срабатывает ДО отрисовки, чтобы не было вспышки белым. -->
 <script>
   (function() {
     try {
@@ -75,8 +76,7 @@
      ПЕРЕМЕННЫЕ ЦВЕТОВ
      ============================================================
      Меняете значения — меняется весь дизайн.
-     --accent — основной акцентный цвет (кнопки, ссылки, точки).
-     --bg — фон страницы. --text — основной цвет текста. -->
+     --accent — основной акцентный цвет (кнопки, ссылки, точки). -->
 
   :root,
   [data-theme="light"] {
@@ -339,16 +339,16 @@
     display: flex; flex-wrap: wrap; justify-content: space-between;
     align-items: baseline; gap: 6px 16px; margin-bottom: 4px;
   }
-  .exp-role { font-size: 16.5px; font-weight: 700; }         /* название должности */
+  .exp-role { font-size: 16.5px; font-weight: 700; }
   .exp-period { font-size: 12.5px; font-weight: 600; color: var(--text-soft); white-space: nowrap; }
   .exp-company { color: var(--text-muted); font-size: 14px; margin-bottom: 14px; }
-  .exp-company b { color: var(--text); font-weight: 600; }   /* название компании жирным */
+  .exp-company b { color: var(--text); font-weight: 600; }
   .exp ul { display: flex; flex-direction: column; gap: 8px; }
   .exp li {
     position: relative; padding-left: 20px;
     color: var(--text-muted); font-size: 14.5px;
   }
-  .exp li::before {                                          /* точка-буллет слева */
+  .exp li::before {
     content: ""; position: absolute; left: 0; top: 9px;
     width: 6px; height: 6px; border-radius: 50%;
     background: var(--accent); opacity: .7;
@@ -379,7 +379,7 @@
     font-size: 14.5px; font-weight: 700; margin-bottom: 12px;
     display: flex; align-items: center; gap: 8px;
   }
-  .skill-card h3::before {                                   /* точка перед заголовком */
+  .skill-card h3::before {
     content: ""; width: 6px; height: 6px; border-radius: 50%;
     background: var(--accent); flex-shrink: 0;
   }
@@ -390,7 +390,7 @@
     padding: 5px 10px; border-radius: 8px;
   }
 
-  /* ---------- Проекты ---------- */
+  /* ---------- Задачи и кейсы ---------- */
   .proj-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 16px;
@@ -407,10 +407,21 @@
     font-size: 13.5px; color: var(--text-muted);
     position: relative; padding-left: 18px;
   }
-  .proj li::before {                                         /* галочка ✓ слева */
+  .proj li::before {
     content: "✓"; position: absolute; left: 0;
     color: var(--accent); font-weight: 700; font-size: 12px; top: 2px;
   }
+
+  /* Кейс: карточка побольше, для развёрнутой истории */
+  .case-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 24px 26px; box-shadow: var(--shadow);
+    margin-top: 20px;
+  }
+  .case-card h3 { font-size: 17px; margin-bottom: 14px; }
+  .case-card p { color: var(--text-muted); font-size: 14.5px; margin-bottom: 10px; }
+  .case-card p:last-child { margin-bottom: 0; }
+  .case-card b { color: var(--text); }
 
   /* ---------- Образование и курсы ---------- */
   .edu-list { display: flex; flex-direction: column; gap: 12px; }
@@ -418,7 +429,7 @@
     background: var(--bg-card); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 16px 20px; box-shadow: var(--shadow);
   }
-  .edu-year {                                                /* плашка с годом */
+  .edu-year {
     display: inline-block; font-size: 12px; font-weight: 700;
     color: var(--accent); background: var(--accent-soft);
     padding: 3px 9px; border-radius: 999px; margin-bottom: 8px;
@@ -439,7 +450,7 @@
     transition: border-color .15s ease, transform .1s ease;
   }
   .contact-card:hover { border-color: var(--accent); text-decoration: none; transform: translateY(-1px); }
-  .contact-ico {                                             /* круглая иконка слева */
+  .contact-ico {
     flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px;
     background: var(--accent-soft); color: var(--accent);
     display: grid; place-items: center;
@@ -460,7 +471,7 @@
     .hero { padding: 44px 0 36px; }
     section.block { padding: 44px 0; }
     .exp { padding: 18px; }
-    .exp-period { width: 100%; }      /* дата переезжает под должность */
+    .exp-period { width: 100%; }
     .container { padding: 0 18px; }
   }
 
@@ -479,7 +490,7 @@
     body { font-size: 11.5px; background: #fff; color: #111; }
     .hero { padding: 12px 0; }
     section.block { padding: 14px 0; border-top: 1px solid #ddd; break-inside: avoid; }
-    .exp, .skill-card, .proj, .edu, .hl { break-inside: avoid; box-shadow: none; border-color: #ddd; }
+    .exp, .skill-card, .proj, .case-card, .edu, .hl { break-inside: avoid; box-shadow: none; border-color: #ddd; }
     a { color: #111; text-decoration: none; }
     .hero h1 { font-size: 22px; }
     .hero .lead { font-size: 12px; }
@@ -501,22 +512,18 @@
       <span class="logo-text">Илья Онищенко</span>
     </a>
 
-    <!-- Табы переключения между двумя резюме.
-         data-tab="pm" — резюме менеджера проектов,
-         data-tab="support" — резюме руководителя поддержки.
-         МЕНЯТЬ: только текст кнопок, атрибуты data-tab не трогайте. -->
+    <!-- Табы переключения между двумя резюме -->
     <div class="segmented" role="tablist" aria-label="Переключение резюме">
       <button type="button" data-tab="pm" role="tab">Менеджер проектов</button>
       <button type="button" data-tab="support" role="tab">Руководитель поддержки</button>
     </div>
 
-    <!-- Навигация по секциям. data-target — привязка к id секции.
-         Ссылки автоматически меняются при переключении резюме. -->
+    <!-- Навигация по секциям. data-target — привязка к id секции. -->
     <nav class="nav" aria-label="Основная навигация">
       <a href="#pm-about" data-target="about">Обо мне</a>
       <a href="#pm-experience" data-target="experience">Опыт</a>
       <a href="#pm-skills" data-target="skills">Навыки</a>
-      <a href="#pm-projects" data-target="projects">Проекты</a>
+      <a href="#pm-projects" data-target="projects">Задачи</a>
       <a href="#pm-education" data-target="education">Образование</a>
       <a href="#pm-contact" data-target="contact">Контакты</a>
     </nav>
@@ -559,7 +566,7 @@
   <a href="#pm-about" data-target="about">Обо мне</a>
   <a href="#pm-experience" data-target="experience">Опыт</a>
   <a href="#pm-skills" data-target="skills">Навыки</a>
-  <a href="#pm-projects" data-target="projects">Проекты</a>
+  <a href="#pm-projects" data-target="projects">Задачи</a>
   <a href="#pm-education" data-target="education">Образование</a>
   <a href="#pm-contact" data-target="contact">Контакты</a>
 </div>
@@ -568,7 +575,6 @@
 
   <!-- ============================================================
        РЕЗЮМЕ №1: МЕНЕДЖЕР ПРОЕКТОВ
-       Показывается по умолчанию. Второе резюме — ниже.
        ============================================================ -->
   <div class="resume" id="resume-pm" data-resume="pm">
 
@@ -577,13 +583,10 @@
       <div class="hero-grid">
         <div>
 
-          <!-- МЕНЯТЬ: роль в плашке над заголовком -->
           <span class="role">Менеджер проектов · IT Project Manager</span>
 
-          <!-- МЕНЯТЬ: главный заголовок. <br> — перенос строки -->
           <h1>Технический бэкграунд<br>плюс управление проектами</h1>
 
-          <!-- МЕНЯТЬ: описание под заголовком (2–4 предложения) -->
           <p class="lead">
             Более 7 лет в ИТ. На всём протяжении совмещаю техническую работу с управленческой:
             настраиваю инфраструктуру и координирую смены, разбираюсь в инцидентах и ставлю задачи команде.
@@ -591,8 +594,6 @@
             Управленческая — декомпозиция задач, контроль сроков, процессы поддержки согласно ITIL.
           </p>
 
-          <!-- Мета-информация: город, формат, готовность.
-               МЕНЯТЬ: текст внутри <span>. Иконки не трогайте. -->
           <div class="hero-meta">
             <span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -608,7 +609,6 @@
             </span>
           </div>
 
-          <!-- Кнопки. Ссылки ведут на секцию контактов и секцию опыта -->
           <div class="cta-row">
             <a href="#pm-contact" class="btn btn-primary">
               Связаться
@@ -619,8 +619,7 @@
         </div>
 
         <!-- Цифровые карточки в hero.
-             МЕНЯТЬ: значение в .hl-top, подпись в .hl-bottom.
-             Чтобы добавить новую — скопируйте <div class="hl">...</div>. -->
+             МЕНЯТЬ: значение в .hl-top, подпись в .hl-bottom. -->
         <div class="highlights">
           <div class="hl"><div class="hl-top">7+ лет</div><div class="hl-bottom">в ИТ и инфраструктуре</div></div>
           <div class="hl"><div class="hl-top">10 человек</div><div class="hl-bottom">в управляемой смене</div></div>
@@ -633,12 +632,16 @@
     <section class="block" id="pm-about">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">Обо мне</div>            <!-- МЕНЯТЬ: маленькая надпись над заголовком -->
+          <div class="section-kicker">Обо мне</div>
           <h2 class="section-title">Инженер, который работает и руками, и головой</h2>
         </div>
 
-        <!-- Абзацы. Чтобы добавить ещё — скопируйте <p>...</p> и вставьте ниже.
-             Стиль инлайн (color и max-width) можно не трогать. -->
+        <!-- Фраза-якорь: даёт образ и остаётся в памяти после прочтения -->
+        <p style="color: var(--text-muted); max-width: 760px; font-size: 1.05em;">
+          Мне одинаково комфортно тянуть кабель и описывать регламент.
+          По моему опыту, второе без первого — теория, а первое без второго — ремесло.
+        </p>
+
         <p style="color: var(--text-muted); max-width: 760px;">
           Более 7 лет в ИТ — на всём протяжении совмещаю техническую работу с управленческой.
           На каждой позиции параллельно вёл два трека: настраивал инфраструктуру и координировал смены,
@@ -671,8 +674,7 @@
 
     <!-- ---------- ОПЫТ РАБОТЫ ----------
          Каждая работа — отдельный <article class="exp reveal">.
-         Чтобы добавить новую работу, скопируйте целиком один <article> и вставьте ниже.
-         Чтобы удалить — удалите весь <article> от <article> до </article>. -->
+         Чтобы добавить новую работу, скопируйте целиком один <article> и вставьте ниже. -->
     <section class="block" id="pm-experience">
       <div class="container">
         <div class="section-head">
@@ -685,22 +687,20 @@
           <!-- ===== РАБОТА №1 ===== -->
           <article class="exp reveal">
             <div class="exp-top">
-              <div class="exp-role">Инженер по поддержке приложений</div>     <!-- МЕНЯТЬ: должность -->
-              <div class="exp-period">Март 2024 — наст. время</div>            <!-- МЕНЯТЬ: период -->
+              <div class="exp-role">Инженер по поддержке приложений</div>
+              <div class="exp-period">Март 2024 — наст. время</div>
             </div>
             <div class="exp-company"><b>Северсталь Диджитал</b> · Череповец · металлургия</div>
-            <!-- МЕНЯТЬ: список задач. Каждый пункт — отдельный <li>. -->
             <ul>
               <li>Собирал требования с владельцев систем, настраивал дашборды Grafana для проактивного оповещения</li>
-              <li>Вёл инциденты и обращения через BPM-систему и Jira — от первичной диагностики до передачи в профильные команды</li>
+              <li>Разбирал инциденты и обращения через BPM-систему и Jira — от первичной диагностики до закрытия или эскалации</li>
               <li>Координировал выкатку изменений в Kubernetes/Docker-окружении совместно с DevOps-командой</li>
               <li>Согласовывал плановые работы и технологические окна с бизнес-подразделениями</li>
               <li>Вводил новые серверы и бизнес-приложения в контур наблюдения: настраивал триггеры доступности и производительности</li>
               <li>Управлял командой инженеров из 3 человек: ставил задачи, контролировал SLA, вёл табели учёта времени</li>
-              <li>Участвовал в создании базы знаний в Confluence: описывал типовые инциденты и регламенты</li>
+              <li>Создавал базу знаний в Confluence: описывал типовые инциденты и регламенты</li>
               <li>Ставил задачи командам разработки, аналитики и DevOps на расследование инцидентов и изменение конфигураций</li>
             </ul>
-            <!-- Технологии: добавляйте/убирайте <span class="chip">…</span>. -->
             <div class="stack">
               <span class="chip">BPM</span><span class="chip">Docker</span><span class="chip">Kubernetes</span>
               <span class="chip">Zabbix</span><span class="chip">Grafana</span><span class="chip">Jira</span>
@@ -717,11 +717,11 @@
             </div>
             <div class="exp-company"><b>АО «НПФ Эволюция»</b> · Череповец · финансовый сектор</div>
             <ul>
-              <li>Участвовал во внедрении системы мониторинга Zabbix: настраивал триггеры, проводил нагрузочное тестирование</li>
+              <li>Внедрял систему мониторинга Zabbix: настраивал триггеры, проводил нагрузочное тестирование</li>
               <li>Координировал плановые обновления ИТ-систем: тестировал патчи перед выкаткой, согласовывал технологические окна</li>
               <li>Управлял обращениями от внутренних пользователей: классифицировал запросы и переводил их в конкретные технические задачи</li>
               <li>Контролировал выполнение заданий резервного копирования критичных данных, проводил тестовые восстановления</li>
-              <li>Участвовал в проектах модернизации серверного парка и сетевого оборудования, проводил аудит производительности</li>
+              <li>Вёл проекты модернизации серверного парка и сетевого оборудования, проводил аудит производительности</li>
               <li>Проводил первичную диагностику инцидентов и маршрутизировал обращения в профильные команды</li>
               <li>Поддерживал серверную инфраструктуру: Windows Server, Active Directory, сетевое оборудование</li>
             </ul>
@@ -744,7 +744,7 @@
               <li>Руководил дежурной группой быстрого реагирования: ставил задачи, распределял смены, вёл отчётность</li>
               <li>Составлял графики дежурств и регламентных работ, проводил инструктажи личного состава</li>
               <li>Проводил очное обучение сотрудников работе с оборудованием охранно-пожарной сигнализации, разрабатывал методические материалы</li>
-              <li>Организовывал ввод в эксплуатацию технических средств охраны: составлял план-графики монтажных работ, контролировал подрядчиков</li>
+              <li>Вводил в эксплуатацию технические средства охраны: составлял план-графики монтажных работ, контролировал подрядчиков</li>
               <li>Разрабатывал и актуализировал техническую документацию согласно требованиям ГОСТ</li>
               <li>Готовил регулярную управленческую отчётность для вышестоящего руководства</li>
             </ul>
@@ -754,9 +754,7 @@
       </div>
     </section>
 
-    <!-- ---------- НАВЫКИ ----------
-         Каждая группа — отдельная <div class="skill-card">.
-         Навыки внутри — <span>…</span>. -->
+    <!-- ---------- НАВЫКИ ---------- -->
     <section class="block" id="pm-skills">
       <div class="container">
         <div class="section-head">
@@ -767,7 +765,7 @@
 
         <div class="skills-grid">
           <div class="skill-card reveal">
-            <h3>Управление и координация</h3>     <!-- МЕНЯТЬ: название группы -->
+            <h3>Управление и координация</h3>
             <div class="skill-tags">
               <span>Project management</span>
               <span>ITIL / ITSM</span>
@@ -820,47 +818,81 @@
       </div>
     </section>
 
-    <!-- ---------- ПРОЕКТЫ ---------- -->
+    <!-- ---------- ЗАДАЧИ И КЕЙС ----------
+         Раздел переделан: вместо перечня прошлых проектов —
+         список типовых задач, которые человек берёт на себя.
+         Ниже — развёрнутый кейс с базой знаний. -->
     <section class="block" id="pm-projects">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">Другие проекты</div>
-          <h2 class="section-title">Кейсы, которыми горжусь</h2>
+          <div class="section-kicker">Задачи</div>
+          <h2 class="section-title">Что я беру на себя</h2>
+          <p class="section-sub">Типовые задачи, в которых у меня есть практика и результат.</p>
         </div>
 
         <div class="proj-grid">
           <article class="proj reveal">
-            <h3>Стандарты техподдержки</h3>
+            <h3>Настроить мониторинг с нуля</h3>
             <ul>
-              <li>Участвовал в разработке регламентов и стандартов техподдержки</li>
-              <li>Создавал и наполнял базу знаний в Confluence</li>
-              <li>Описывал типовые инциденты и алгоритмы их решения</li>
+              <li>Подобрать инструменты под инфраструктуру</li>
+              <li>Прописать триггеры доступности и производительности</li>
+              <li>Обучить команду работать с алертами</li>
             </ul>
           </article>
 
           <article class="proj reveal">
-            <h3>Обучение и наставничество</h3>
+            <h3>Описать регламенты и завести базу знаний</h3>
             <ul>
-              <li>Проводил онбординг новых сотрудников</li>
-              <li>Обучал работе с оборудованием охранно-пожарной сигнализации</li>
-              <li>Разрабатывал методические материалы для обучения</li>
+              <li>Собрать структуру типовых инцидентов и процессов</li>
+              <li>Описать сценарии разбора и эскалации</li>
+              <li>Встроить ведение базы в ежедневную работу команды</li>
             </ul>
           </article>
 
           <article class="proj reveal">
-            <h3>Мониторинг и инфраструктура</h3>
+            <h3>Разобрать сложный инцидент</h3>
             <ul>
-              <li>Настраивал триггеры доступности и производительности для новых серверов и приложений</li>
-              <li>Проводил нагрузочное тестирование системы мониторинга</li>
-              <li>Участвовал в модернизации серверного парка и сетевого оборудования</li>
+              <li>Найти причину, а не только симптом</li>
+              <li>Описать постмортем без поиска виноватых</li>
+              <li>Внести изменения в систему, чтобы не повторилось</li>
+            </ul>
+          </article>
+
+          <article class="proj reveal">
+            <h3>Провести онбординг инженера</h3>
+            <ul>
+              <li>Познакомить с инфраструктурой и процессами</li>
+              <li>Передать базу знаний и регламенты</li>
+              <li>Довести до самостоятельных дежурств</li>
             </ul>
           </article>
         </div>
+
+        <!-- КЕЙС: развёрнутая история в формате «было → сделал → стало» -->
+        <article class="case-card reveal">
+          <div class="section-kicker" style="margin-bottom: 10px;">Кейс</div>
+          <h3>Как я превратил разрозненные знания в рабочую базу</h3>
+
+          <p>
+            <b>Было.</b> Типовые инциденты разбирались каждый раз с нуля — знания жили в головах
+            нескольких инженеров. Новый сотрудник не мог решить простой кейс без подсказки,
+            а опытные тратили время на одно и то же.
+          </p>
+          <p>
+            <b>Сделал.</b> Собрал в Confluence структуру: типовые инциденты, частые сбои, регламенты.
+            Договорился с командой, что после каждого сложного случая в базе появляется запись —
+            не как отчёт, а как рабочий инструмент. Сам написал первые статьи, чтобы показать формат.
+          </p>
+          <p>
+            <b>Стало.</b> Через пару месяцев новые сотрудники разбирали типовые обращения
+            самостоятельно, а опытные перестали отвечать на одни и те же вопросы.
+            База стала частью онбординга.
+          </p>
+        </article>
       </div>
     </section>
 
-    <!-- ---------- ОБРАЗОВАНИЕ ----------
-         Один диплом/курс — один <div class="edu reveal">. -->
+    <!-- ---------- ОБРАЗОВАНИЕ ---------- -->
     <section class="block" id="pm-education">
       <div class="container">
         <div class="section-head">
@@ -870,7 +902,7 @@
 
         <div class="edu-list">
           <div class="edu reveal">
-            <span class="edu-year">2019</span>                                     <!-- год или метка -->
+            <span class="edu-year">2019</span>
             <div class="edu-title">Бакалавр · Инфокоммуникационные технологии и системы связи</div>
             <div class="edu-org">Санкт-Петербургский государственный университет телекоммуникаций им. проф. М.А. Бонч-Бруевича · Защищённые сети и системы связи</div>
           </div>
@@ -908,10 +940,7 @@
       </div>
     </section>
 
-    <!-- ---------- КОНТАКТЫ ----------
-         Телефон убран. Осталось: email, Telegram, VK.
-         Чтобы добавить новый контакт — скопируйте блок <a class="contact-card">…</a>.
-         Атрибут href в каждом: mailto:, https://t.me/..., https://vk.com/... -->
+    <!-- ---------- КОНТАКТЫ ---------- -->
     <section class="block" id="pm-contact">
       <div class="container">
         <div class="section-head">
@@ -921,7 +950,6 @@
         </div>
         <div class="contact-wrap">
 
-          <!-- Email. МЕНЯТЬ: адрес в href и в тексте -->
           <a class="contact-card" href="mailto:o.i.o-1@mail.ru">
             <span class="contact-ico">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
@@ -932,7 +960,6 @@
             </span>
           </a>
 
-          <!-- Telegram. МЕНЯТЬ: ник в href и в тексте -->
           <a class="contact-card" href="https://t.me/ilyaonishchenko" target="_blank" rel="noopener">
             <span class="contact-ico">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
@@ -943,7 +970,6 @@
             </span>
           </a>
 
-          <!-- VK. МЕНЯТЬ: адрес страницы в href и в тексте -->
           <a class="contact-card" href="https://vk.com/ilyaonishenko" target="_blank" rel="noopener">
             <span class="contact-ico">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h2c.5 0 .7.3.9.8.6 1.6 1.4 3 2.1 3 .4 0 .5-.3.5-1.2V9.7c0-.5-.2-.7-.7-.7V9c1.5-.1 2.2-.1 2.7 0 .4 0 .5.3.5.8v3c0 .4.1.6.3.6.4 0 1-1 1.6-2.3.5-.9.8-1.7.9-2h1.7c.4 0 .6.2.6.6 0 .6-.6 1.6-1.3 2.6-.3.4-.4.6-.4.8 0 .2.1.3.4.6.8.8 1.4 1.8 1.4 2.3 0 .4-.3.6-.8.6h-1.5c-.5 0-.8-.2-1.3-.7-.8-.8-1.2-1-1.4-1-.2 0-.3.2-.3.5v.5c0 .5-.2.7-.7.7-2.1 0-4.2-1.6-5.5-4.4C4.6 9.6 4.5 9.5 4 9.5V9z"/></svg>
@@ -963,9 +989,6 @@
 
   <!-- ============================================================
        РЕЗЮМЕ №2: РУКОВОДИТЕЛЬ ТЕХПОДДЕРЖКИ
-       Атрибут hidden — этот блок скрыт по умолчанию.
-       Показывается при клике на таб «Руководитель поддержки».
-       Структура полностью совпадает с первым резюме.
        ============================================================ -->
   <div class="resume" id="resume-support" data-resume="support" hidden>
 
@@ -1004,7 +1027,6 @@
           </div>
         </div>
 
-        <!-- МЕНЯТЬ: карточки в hero второго резюме -->
         <div class="highlights">
           <div class="hl"><div class="hl-top">7+ лет</div><div class="hl-bottom">в ИТ и поддержке</div></div>
           <div class="hl"><div class="hl-top">3 года</div><div class="hl-bottom">управленческой практики</div></div>
@@ -1020,6 +1042,12 @@
           <div class="section-kicker">Обо мне</div>
           <h2 class="section-title">Инженер, который управляет и продолжает работать руками</h2>
         </div>
+
+        <!-- Фраза-якорь для руководителя поддержки -->
+        <p style="color: var(--text-muted); max-width: 760px; font-size: 1.05em;">
+          Мне одинаково комфортно чинить сервер и выстраивать работу смены.
+          По моему опыту, поддержка без понимания железа — это диспетчерская, а не инженерная служба.
+        </p>
 
         <p style="color: var(--text-muted); max-width: 760px;">
           Более 7 лет в ИТ — техническая работа идёт параллельно с управленческой. На каждой позиции
@@ -1067,12 +1095,12 @@
             </div>
             <div class="exp-company"><b>Северсталь Диджитал</b> · Череповец · металлургия</div>
             <ul>
-              <li>Помогал разрабатывать и внедрять стандарты технической поддержки</li>
-              <li>Участвовал в создании базы знаний в Confluence — уменьшилось время решения типовых инцидентов</li>
+              <li>Разрабатывал и внедрял стандарты технической поддержки вместе с командой</li>
+              <li>Создавал базу знаний в Confluence — уменьшилось время решения типовых инцидентов</li>
               <li>Управлял сменным графиком дежурств команды, заполнял табели учёта времени и переноса смен</li>
-              <li>Помогал контролировать соблюдение SLA при обработке обращений</li>
+              <li>Контролировал соблюдение SLA при обработке обращений</li>
               <li>Взаимодействовал со смежными командами (разработка, аналитика, инженеры данных, архитекторы): постановка задач и расследование сложных сбоев</li>
-              <li>Участвовал в согласовании плановых работ и технологических окон, а также в оповещении о них</li>
+              <li>Согласовывал плановые работы и технологические окна, оповещал смежные команды</li>
               <li>Проводил диагностику приложений при сбоях, работал с Docker и Kubernetes: настройка контейнеров, чтение логов, выкатка изменений, параметры подов</li>
               <li>Вёл мониторинг работоспособности систем через Zabbix и Grafana — реагирование на алерты, проактивность</li>
               <li>Обрабатывал обращения пользователей и заказчиков: инциденты в BPM-системе, заявки, звонки, задачи в Jira</li>
@@ -1093,7 +1121,7 @@
             <div class="exp-company"><b>АО «НПФ Эволюция»</b> · Череповец · финансовый сектор</div>
             <ul>
               <li>Осуществлял мониторинг функционирования ИТ-инфраструктуры и критичных бизнес-систем</li>
-              <li>Участвовал в развитии ИТ-инфраструктуры компании и проектах по её модернизации, включая внедрение системы мониторинга Zabbix</li>
+              <li>Развивал ИТ-инфраструктуру компании: вёл проекты модернизации, внедрял систему мониторинга Zabbix</li>
               <li>Выполнял настройку и отладку производительности серверов и сетевого оборудования</li>
               <li>Координировал плановые обновления ИТ-систем: тестировал патчи, согласовывал технологические окна</li>
               <li>Управлял обращениями внутренних пользователей: классифицировал запросы и переводил в конкретные технические задачи</li>
@@ -1118,7 +1146,7 @@
               <li>Проводил собеседования кандидатов и обучение сотрудников работе с оборудованием</li>
               <li>Разрабатывал инструкции по пользованию охранно-пожарной сигнализацией</li>
               <li>Настраивал и поддерживал работоспособность серверов мониторинга охранно-пожарной сигнализации и IP-телефонии</li>
-              <li>Организовывал ввод в эксплуатацию технических средств охраны, контролировал регламентные работы</li>
+              <li>Вводил в эксплуатацию технические средства охраны, контролировал регламентные работы</li>
               <li>Работал с ГОСТ-документами: проверка на соответствие, заполнение согласно требованиям законодательства</li>
               <li>Составлял акты и отчёты о проверке систем</li>
             </ul>
@@ -1197,45 +1225,72 @@
       </div>
     </section>
 
-    <!-- ---------- ПРОЕКТЫ ---------- -->
+    <!-- ---------- ЗАДАЧИ И КЕЙС ---------- -->
     <section class="block" id="support-projects">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">Ключевые проекты</div>
-          <h2 class="section-title">Что делал и к чему пришёл</h2>
+          <div class="section-kicker">Задачи</div>
+          <h2 class="section-title">Что я беру на себя</h2>
+          <p class="section-sub">Задачи по команде, процессам и технике — с практикой в каждой.</p>
         </div>
 
         <div class="proj-grid">
           <article class="proj reveal">
-            <h3>Service Desk и база знаний</h3>
+            <h3>Выстроить Service Desk</h3>
             <ul>
-              <li>Участвовал в разработке и внедрении стандартов технической поддержки</li>
-              <li>Создавал и наполнял базу знаний в Confluence</li>
-              <li>Описывал типовые инциденты и алгоритмы их решения</li>
-              <li>Помогал выстраивать маршрутизацию обращений между командами</li>
+              <li>Настроить SLA и маршрутизацию тикетов</li>
+              <li>Очереди и приоритеты в Jira</li>
+              <li>Регламенты эскалации между линиями</li>
             </ul>
           </article>
 
           <article class="proj reveal">
-            <h3>Команда и наставничество</h3>
+            <h3>Развить команду поддержки</h3>
             <ul>
-              <li>Проводил собеседования кандидатов в поддержку</li>
-              <li>Обучал сотрудников работе с оборудованием и внутренними системами</li>
-              <li>Разрабатывал инструкции и методические материалы</li>
-              <li>Вёл сменный график дежурств, распределял нагрузку</li>
+              <li>Провести собеседования и онбординг</li>
+              <li>Настроить распределение нагрузки on-call</li>
+              <li>Обучать и наставлять инженеров</li>
             </ul>
           </article>
 
           <article class="proj reveal">
-            <h3>Мониторинг и проактивность</h3>
+            <h3>Внедрить мониторинг и проактивность</h3>
             <ul>
-              <li>Участвовал во внедрении Zabbix и настройке триггеров</li>
-              <li>Вёл дашборды Grafana для контроля здоровья сервисов</li>
-              <li>Проводил нагрузочное тестирование системы мониторинга</li>
-              <li>Работал с Docker/Kubernetes: диагностика, чтение логов, выкатка</li>
+              <li>Настроить Zabbix, Grafana и дашборды</li>
+              <li>Прописать триггеры и алерты</li>
+              <li>Перейти от реакции к предупреждению инцидентов</li>
+            </ul>
+          </article>
+
+          <article class="proj reveal">
+            <h3>Разгрузить первую линию</h3>
+            <ul>
+              <li>Собрать базу знаний по типовым обращениям</li>
+              <li>Обучить L1 самостоятельному разбору</li>
+              <li>Снизить нагрузку на вторую линию</li>
             </ul>
           </article>
         </div>
+
+        <!-- КЕЙС для резюме поддержки: тот же смысл, акцент на команде -->
+        <article class="case-card reveal">
+          <div class="section-kicker" style="margin-bottom: 10px;">Кейс</div>
+          <h3>Как я снизил нагрузку на команду через базу знаний</h3>
+
+          <p>
+            <b>Было.</b> Первая линия перегружена типовыми обращениями, вторую линию дёргают
+            по любому поводу. Знания — в головах трёх инженеров, а не в системе.
+          </p>
+          <p>
+            <b>Сделал.</b> Собрал базу знаний в Confluence: типовые инциденты, частые вопросы,
+            регламенты и скрипты диагностики. Встроил правило: после каждого сложного случая —
+            короткая запись в базу. Обучил команду пользоваться ей в работе, а не только читать.
+          </p>
+          <p>
+            <b>Стало.</b> Первая линия стала закрывать больше обращений самостоятельно,
+            вторая — разгружена от рутины. Новый сотрудник выходил на самостоятельные дежурства быстрее.
+          </p>
+        </article>
       </div>
     </section>
 
@@ -1342,14 +1397,12 @@
 <!-- ============================================================
      СКРИПТЫ
      ============================================================
-     Обычно здесь менять ничего не нужно.
-     Скрипт отвечает за:
-       1. Год и дату в футере.
-       2. Переключение светлой/тёмной темы.
-       3. Переключение между двумя резюме.
-       4. Мобильное меню.
-       5. Подсветку активной ссылки в навигации.
-       6. Анимацию появления блоков.
+     1. Год и дата в футере.
+     2. Переключение светлой/тёмной темы.
+     3. Переключение между двумя резюме.
+     4. Мобильное меню.
+     5. Подсветка активной ссылки в навигации.
+     6. Анимация появления блоков.
      ============================================================ -->
 <script>
   /* ---------- 1. Год и дата в футере ---------- */
@@ -1377,24 +1430,20 @@
   function showResume(name, scrollTop = true) {
     if (!['pm', 'support'].includes(name)) name = 'pm';
 
-    // Скрываем все, кроме выбранного
     resumes.forEach(r => {
       r.hidden = r.dataset.resume !== name;
     });
 
-    // Подсвечиваем активный таб
     tabs.forEach(t => {
       const active = t.dataset.tab === name;
       t.classList.toggle('active', active);
       t.setAttribute('aria-selected', String(active));
     });
 
-    // Обновляем href ссылок навигации — меняем префикс pm-/support-
     navLinks.forEach(l => {
       l.href = `#${name}-${l.dataset.target}`;
     });
 
-    // Обновляем адресную строку (без прыжка по странице)
     if (history.replaceState) {
       history.replaceState(null, '', `#${name}`);
     } else {
@@ -1478,7 +1527,6 @@
   updateActiveNav();
   revealVisible();
 
-  // Если пользователь вручную меняет hash в адресной строке — переключаем резюме
   window.addEventListener('hashchange', () => {
     const h = location.hash.replace('#', '');
     if (h.startsWith('support')) showResume('support', false);
