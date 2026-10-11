@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Илья Онищенко — Менеджер проектов / Руководитель поддержки</title>
+<meta name="description" content="Илья Онищенко — 7+ лет в ИТ. Совмещаю техническую работу с управленческой: Linux/Windows Server, мониторинг, Docker/Kubernetes плюс управление командами и процессами поддержки." />
+<meta property="og:title" content="Илья Онищенко — Менеджер проектов / Руководитель поддержки" />
+<meta property="og:description" content="7+ лет в ИТ. Совмещаю техническую работу с управленческой: администрирование, мониторинг, координация команд и процессов поддержки." />
+<meta property="og:type" content="profile" />
+<meta name="twitter:card" content="summary" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232f6df6'/><text x='50' y='68' font-family='Arial' font-size='52' font-weight='bold' fill='white' text-anchor='middle'>ИО</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  (function() {
+    try {
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', saved || (prefersDark ? 'dark' : 'light'));
+    } catch(e) {}
+  })();
+</script>
+<style>
+  :root,
+  [data-theme="light"] {
+    --bg: #ffffff;
+    --bg-soft: #f6f7f9;
+    --bg-card: #ffffff;
+    --text: #12161c;
+    --text-muted: #5a6472;
+    --text-soft: #8a94a3;
+    --accent: #2f6df6;
+    --accent-soft: #e8f0ff;
+    --accent-contrast: #ffffff;
+    --border: #e6e9ef;
+    --border-strong: #d4dae3;
+    --shadow: 0 1px 2px rgba(16,24,40,.04), 0 8px 24px rgba(16,24,40,.06);
+    --radius: 14px;
+    --maxw: 980px;
+    --header-h: 64px;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  [data-theme="dark"] {
+    --bg: #0e1116;
+    --bg-soft: #141922;
+    --bg-card: #161c26;
+    --text: #e8edf5;
+    --text-muted: #a3adbd;
+    --text-soft: #7a8697;
+    --accent: #6b9bff;
+    --accent-soft: #1b2740;
+    --accent-contrast: #0e1116;
+    --border: #232b38;
+    --border-strong: #303a4b;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); }
+  body {
+    margin: 0;
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    transition: background-color .2s ease, color .2s ease;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  h1, h2, h3, h4 { line-height: 1.25; margin: 0 0 .5em; font-weight: 700; letter-spacing: -0.01em; }
+  p { margin: 0 0 1em; }
+  button { font-family: inherit; }
+
+  .container {
+    width: 100%;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .header {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: background-color .2s ease, border-color .2s ease;
+  }
+  .header-inner {
+    display: flex; align-items: center; gap: 12px;
+    height: var(--header-h);
+  }
+  .logo {
+    font-weight: 800; font-size: 15px; letter-spacing: -0.01em;
+    color: var(--text); text-decoration: none;
+    display: flex; align-items: center; gap: 8px;
+    flex-shrink: 0;
+  }
+  .logo-mark {
+    width: 26px; height: 26px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), #8b5cf6);
+    color: #fff; font-size: 12px; font-weight: 800;
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .logo-text { display: none; }
+  @media (min-width: 640px) { .logo-text { display: inline; } }
+
+  .segmented {
+    display: none;
+    margin: 0 auto;
+    padding: 3px;
+    border-radius: 999px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    gap: 2px;
+  }
+  @media (min-width: 900px) { .segmented { display: inline-flex; } }
+  .segmented button {
+    border: 0; background: transparent;
+    color: var(--text-muted);
+    font-size: 13.5px; font-weight: 600;
+    padding: 7px 14px; border-radius: 999px;
+    cursor: pointer; white-space: nowrap;
+    transition: background .15s ease, color .15s ease;
+  }
+  .segmented button:hover { color: var(--text); }
+  .segmented button.active {
+    background: var(--bg-card);
+    color: var(--text);
+    box-shadow: 0 1px 2px rgba(16,24,40,.06);
+  }
+
+  .nav { display: flex; gap: 2px; margin-left: auto; }
+  .nav a {
+    color: var(--text-muted); font-size: 13.5px; font-weight: 500;
+    padding: 8px 11px; border-radius: 8px;
+    transition: background .15s ease, color .15s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .nav a:hover { color: var(--text); background: var(--bg-soft); text-decoration: none; }
+  .nav a.active { color: var(--accent); background: var(--accent-soft); }
+  @media (max-width: 1080px) { .nav { display: none; } }
+
+  .header-controls { display: flex; gap: 6px; align-items: center; }
+
+  .icon-btn {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition: background .15s ease, border-color .15s ease, transform .1s ease;
+  }
+  .icon-btn:hover { background: var(--bg-soft); border-color: var(--border-strong); }
+  .icon-btn:active { transform: scale(.96); }
+  .icon-btn svg { width: 18px; height: 18px; }
+
+  [data-theme="light"] .icon-sun { display: none; }
+  [data-theme="dark"] .icon-moon { display: none; }
+
+  .burger { display: none; }
+  @media (max-width: 1080px) { .burger { display: inline-flex; } }
+
+  .mobile-nav {
+    display: none;
+    position: fixed; top: var(--header-h); left: 0; right: 0; bottom: 0;
+    background: var(--bg); z-index: 49;
+    padding: 16px 24px 32px;
+    border-top: 1px solid var(--border);
+    overflow-y: auto;
+  }
+  .mobile-nav.open { display: block; }
+  .mobile-nav .segmented {
+    display: inline-flex;
+    margin: 0 0 16px;
+    width: 100%;
+  }
+  .mobile-nav .segmented button { flex: 1; }
+  .mobile-nav a {
+    display: block; padding: 14px 4px;
+    font-size: 17px; font-weight: 600; color: var(--text);
+    border-bottom: 1px solid var(--border); text-decoration: none;
+  }
+  .mobile-nav a:last-of-type { border-bottom: 0; }
+
+  .hero { padding: 64px 0 48px; }
+  .hero-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+  .hero h1 {
+    font-size: clamp(28px, 4.6vw, 42px);
+    font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px;
+  }
+  .hero .role {
+    display: inline-block; font-size: 14px; font-weight: 600;
+    color: var(--accent); background: var(--accent-soft);
+    padding: 6px 12px; border-radius: 999px; margin-bottom: 20px;
+  }
+  .hero .lead {
+    font-size: clamp(15.5px, 1.6vw, 17px);
+    color: var(--text-muted); max-width: 640px; margin-bottom: 26px;
+  }
+  .hero-meta {
+    display: flex; flex-wrap: wrap; gap: 8px 20px;
+    color: var(--text-soft); font-size: 14px; margin-bottom: 28px;
+  }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
+  .hero-meta svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+  .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 18px; border-radius: 10px;
+    font-weight: 600; font-size: 15px; cursor: pointer;
+    border: 1px solid transparent; text-decoration: none;
+    transition: transform .1s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+  }
+  .btn:hover { text-decoration: none; transform: translateY(-1px); }
+  .btn-primary {
+    background: var(--accent); color: var(--accent-contrast);
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--accent) 35%, transparent);
+  }
+  .btn-primary:hover { background: color-mix(in srgb, var(--accent) 88%, #000); }
+  .btn-ghost {
+    background: transparent; color: var(--text); border-color: var(--border);
+  }
+  .btn-ghost:hover { background: var(--bg-soft); border-color: var(--border-strong); }
+
+  section.block { padding: 60px 0; border-top: 1px solid var(--border); }
+  .section-head { margin-bottom: 28px; }
+  .section-kicker {
+    font-size: 12.5px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--accent); margin-bottom: 8px;
+  }
+  .section-title {
+    font-size: clamp(21px, 3vw, 28px); font-weight: 800;
+    letter-spacing: -0.02em; margin: 0;
+  }
+  .section-sub {
+    color: var(--text-muted); margin-top: 8px; max-width: 680px;
+  }
+
+  .highlights {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+  .hl {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px 18px; box-shadow: var(--shadow);
+  }
+  .hl .hl-top { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; color: var(--accent); }
+  .hl .hl-bottom { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+
+  .exp-list { display: flex; flex-direction: column; gap: 20px; }
+  .exp {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow);
+  }
+  .exp-top {
+    display: flex; flex-wrap: wrap; justify-content: space-between;
+    align-items: baseline; gap: 6px 16px; margin-bottom: 4px;
+  }
+  .exp-role { font-size: 16.5px; font-weight: 700; }
+  .exp-period { font-size: 12.5px; font-weight: 600; color: var(--text-soft); white-space: nowrap; }
+  .exp-company { color: var(--text-muted); font-size: 14px; margin-bottom: 14px; }
+  .exp-company b { color: var(--text); font-weight: 600; }
+  .exp ul { display: flex; flex-direction: column; gap: 8px; }
+  .exp li {
+    position: relative; padding-left: 20px;
+    color: var(--text-muted); font-size: 14.5px;
+  }
+  .exp li::before {
+    content: ""; position: absolute; left: 0; top: 9px;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); opacity: .7;
+  }
+  .stack {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px;
+    padding-top: 14px; border-top: 1px dashed var(--border);
+  }
+  .chip {
+    font-size: 12.5px; font-weight: 500;
+    background: var(--bg-soft); color: var(--text-muted);
+    padding: 4px 10px; border-radius: 999px;
+    border: 1px solid var(--border);
+  }
+
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .skill-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow);
+  }
+  .skill-card h3 {
+    font-size: 14.5px; font-weight: 700; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .skill-card h3::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); flex-shrink: 0;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .skill-tags span {
+    font-size: 12.5px; color: var(--text-muted);
+    background: var(--bg-soft); border: 1px solid var(--border);
+    padding: 5px 10px; border-radius: 8px;
+  }
+
+  .proj-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .proj {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow);
+    transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  .proj:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(16,24,40,.10); border-color: var(--border-strong); }
+  .proj h3 { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+  .proj ul { display: flex; flex-direction: column; gap: 6px; }
+  .proj li {
+    font-size: 13.5px; color: var(--text-muted);
+    position: relative; padding-left: 18px;
+  }
+  .proj li::before {
+    content: "✓"; position: absolute; left: 0;
+    color: var(--accent); font-weight: 700; font-size: 12px; top: 2px;
+  }
+
+  .edu-list { display: flex; flex-direction: column; gap: 12px; }
+  .edu {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px 20px; box-shadow: var(--shadow);
+  }
+  .edu-year {
+    display: inline-block; font-size: 12px; font-weight: 700;
+    color: var(--accent); background: var(--accent-soft);
+    padding: 3px 9px; border-radius: 999px; margin-bottom: 8px;
+  }
+  .edu-title { font-weight: 700; font-size: 15px; margin-bottom: 2px; }
+  .edu-org { color: var(--text-muted); font-size: 13.5px; }
+
+  .contact-wrap {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+  }
+  .contact-card {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 14px 16px; box-shadow: var(--shadow);
+    color: var(--text); text-decoration: none;
+    transition: border-color .15s ease, transform .1s ease;
+  }
+  .contact-card:hover { border-color: var(--accent); text-decoration: none; transform: translateY(-1px); }
+  .contact-ico {
+    flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px;
+    background: var(--accent-soft); color: var(--accent);
+    display: grid; place-items: center;
+  }
+  .contact-ico svg { width: 17px; height: 17px; }
+  .contact-label { display: block; font-size: 12px; color: var(--text-soft); }
+  .contact-value { display: block; font-size: 14px; font-weight: 600; color: var(--text); word-break: break-word; }
+
+  footer {
+    padding: 28px 0 44px; border-top: 1px solid var(--border);
+    color: var(--text-soft); font-size: 12.5px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+  }
+
+  @media (max-width: 720px) {
+    .hero { padding: 44px 0 36px; }
+    section.block { padding: 44px 0; }
+    .exp { padding: 18px; }
+    .exp-period { width: 100%; }
+    .container { padding: 0 18px; }
+  }
+
+  .reveal { opacity: 0; transform: translateY(12px); transition: opacity .5s ease, transform .5s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  @media print {
+    :root, [data-theme] { --shadow: none; --bg: #fff; --bg-soft: #f4f5f7; --bg-card: #fff; --text: #111; --text-muted: #444; --border: #ddd; }
+    .header, .mobile-nav, .segmented, .cta-row, .header-controls { display: none !important; }
+    body { font-size: 11.5px; background: #fff; color: #111; }
+    .hero { padding: 12px 0; }
+    section.block { padding: 14px 0; border-top: 1px solid #ddd; break-inside: avoid; }
+    .exp, .skill-card, .proj, .edu, .hl { break-inside: avoid; box-shadow: none; border-color: #ddd; }
+    a { color: #111; text-decoration: none; }
+    .hero h1 { font-size: 22px; }
+    .hero .lead { font-size: 12px; }
+    footer { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+      <span class="logo-mark">ИО</span>
+      <span class="logo-text">Илья Онищенко</span>
+    </a>
+
+    <div class="segmented" role="tablist" aria-label="Переключение резюме">
+      <button type="button" data-tab="pm" role="tab">Менеджер проектов</button>
+      <button type="button" data-tab="support" role="tab">Руководитель поддержки</button>
+    </div>
+
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#pm-about" data-target="about">Обо мне</a>
+      <a href="#pm-experience" data-target="experience">Опыт</a>
+      <a href="#pm-skills" data-target="skills">Навыки</a>
+      <a href="#pm-projects" data-target="projects">Проекты</a>
+      <a href="#pm-education" data-target="education">Образование</a>
+      <a href="#pm-contact" data-target="contact">Контакты</a>
+    </nav>
+
+    <div class="header-controls">
+      <button class="icon-btn" id="themeToggle" aria-label="Переключить тему" title="Светлая / тёмная тема">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"/>
+          <line x1="12" y1="2" x2="12" y2="4"/>
+          <line x1="12" y1="20" x2="12" y2="22"/>
+          <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/>
+          <line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/>
+          <line x1="2" y1="12" x2="4" y2="12"/>
+          <line x1="20" y1="12" x2="22" y2="12"/>
+          <line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/>
+          <line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/>
+        </svg>
+      </button>
+      <button class="icon-btn burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileNav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="segmented" role="tablist" aria-label="Переключение резюме">
+    <button type="button" data-tab="pm" role="tab">Менеджер проектов</button>
+    <button type="button" data-tab="support" role="tab">Руководитель поддержки</button>
+  </div>
+  <a href="#pm-about" data-target="about">Обо мне</a>
+  <a href="#pm-experience" data-target="experience">Опыт</a>
+  <a href="#pm-skills" data-target="skills">Навыки</a>
+  <a href="#pm-projects" data-target="projects">Проекты</a>
+  <a href="#pm-education" data-target="education">Образование</a>
+  <a href="#pm-contact" data-target="contact">Контакты</a>
+</div>
+
+<main>
+
+  <!-- ============ РЕЗЮМЕ 1: МЕНЕДЖЕР ПРОЕКТОВ ============ -->
+  <div class="resume" id="resume-pm" data-resume="pm">
+
+    <section class="hero container">
+      <div class="hero-grid">
+        <div>
+          <span class="role">Менеджер проектов · IT Project Manager</span>
+          <h1>Технический бэкграунд<br>плюс управление проектами</h1>
+          <p class="lead">
+            Более 7 лет в ИТ. На всём протяжении совмещаю техническую работу с управленческой:
+            настраиваю инфраструктуру и координирую смены, разбираюсь в инцидентах и ставлю задачи команде.
+            Практическая база — Linux/Windows Server, мониторинг, Docker, Kubernetes.
+            Управленческая — декомпозиция задач, контроль сроков, процессы поддержки согласно ITIL.
+          </p>
+          <div class="hero-meta">
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Череповец
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Удалённо · Гибрид · Офис
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Готов к командировкам
+            </span>
+          </div>
+          <div class="cta-row">
+            <a href="#pm-contact" class="btn btn-primary">
+              Связаться
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#pm-experience" class="btn btn-ghost">Смотреть опыт</a>
+          </div>
+        </div>
+
+        <div class="highlights">
+          <div class="hl"><div class="hl-top">7+ лет</div><div class="hl-bottom">в ИТ и инфраструктуре</div></div>
+          <div class="hl"><div class="hl-top">10 человек</div><div class="hl-bottom">в управляемой смене</div></div>
+          <div class="hl"><div class="hl-top">3 года</div><div class="hl-bottom">управленческой практики</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="pm-about">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Обо мне</div>
+          <h2 class="section-title">Инженер, который работает и руками, и головой</h2>
+        </div>
+
+        <p style="color: var(--text-muted); max-width: 760px;">
+          Более 7 лет в ИТ — на всём протяжении совмещаю техническую работу с управленческой.
+          На каждой позиции параллельно вёл два трека: настраивал инфраструктуру и координировал смены,
+          разбирался в инцидентах и ставил задачи команде, работал с оборудованием и выстраивал
+          взаимодействие между подразделениями.
+        </p>
+
+        <p style="color: var(--text-muted); max-width: 760px;">
+          Практическая база — администрирование Linux и Windows Server, настройка серверов и систем
+          мониторинга, работа с Docker и Kubernetes. Управленческая — декомпозиция задач, контроль
+          сроков, выстраивание процессов поддержки согласно ITIL. Умею и локализовать причину
+          инцидента, и организовать работу так, чтобы инцидентов становилось меньше.
+        </p>
+
+        <p style="color: var(--text-muted); max-width: 760px;">
+          Отдельный навык — переводить техническую сложность на язык бизнеса: развил его через
+          наставничество, обучение сотрудников и разработку внутренней документации. Опираюсь
+          на практику: регламенты, база знаний, SLA, маршрутизация обращений. Не закрываю задачи
+          поштучно — выстраиваю процессы, которые повышают эффективность команды.
+        </p>
+
+        <p style="color: var(--text-muted); max-width: 760px;">
+          Вектор — проектное управление и продукт. Прошёл профильную переподготовку по управлению
+          ИТ-проектами и продуктами, осваиваю новые инструменты и сразу встраиваю их в работу.
+          Ответственность и дисциплина — из службы в органах внутренних дел: сохраняю хладнокровие
+          в критических ситуациях и принимаю решения, когда что-то горит.
+        </p>
+      </div>
+    </section>
+
+    <section class="block" id="pm-experience">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Опыт работы</div>
+          <h2 class="section-title">Где я работал и что делал</h2>
+        </div>
+
+        <div class="exp-list">
+
+          <article class="exp reveal">
+            <div class="exp-top">
+              <div class="exp-role">Инженер по поддержке приложений</div>
+              <div class="exp-period">Март 2024 — наст. время</div>
+            </div>
+            <div class="exp-company"><b>Северсталь Диджитал</b> · Череповец · металлургия</div>
+            <ul>
+              <li>Собирал требования с владельцев систем, настраивал дашборды Grafana для проактивного оповещения</li>
+              <li>Вёл инциденты и обращения через BPM-систему и Jira — от первичной диагностики до передачи в профильные команды</li>
+              <li>Координировал выкатку изменений в Kubernetes/Docker-окружении совместно с DevOps-командой</li>
+              <li>Согласовывал плановые работы и технологические окна с бизнес-подразделениями</li>
+              <li>Вводил новые серверы и бизнес-приложения в контур наблюдения: настраивал триггеры доступности и производительности</li>
+              <li>Управлял командой инженеров из 3 человек: ставил задачи, контролировал SLA, вёл табели учёта времени</li>
+              <li>Участвовал в создании базы знаний в Confluence: описывал типовые инциденты и регламенты</li>
+              <li>Ставил задачи командам разработки, аналитики и DevOps на расследование инцидентов и изменение конфигураций</li>
+            </ul>
+            <div class="stack">
+              <span class="chip">BPM</span><span class="chip">Docker</span><span class="chip">Kubernetes</span>
+              <span class="chip">Zabbix</span><span class="chip">Grafana</span><span class="chip">Jira</span>
+              <span class="chip">Confluence</span><span class="chip">Git</span><span class="chip">Java</span>
+              <span class="chip">Python</span><span class="chip">Bash</span><span class="chip">Linux</span>
+            </div>
+          </article>
+
+          <article class="exp reveal">
+            <div class="exp-top">
+              <div class="exp-role">Инженер группы мониторинга</div>
+              <div class="exp-period">АО «НПФ Эволюция»</div>
+            </div>
+            <div class="exp-company"><b>АО «НПФ Эволюция»</b> · Череповец · финансовый сектор</div>
+            <ul>
+              <li>Участвовал во внедрении системы мониторинга Zabbix: настраивал триггеры, проводил нагрузочное тестирование</li>
+              <li>Координировал плановые обновления ИТ-систем: тестировал патчи перед выкаткой, согласовывал технологические окна</li>
+              <li>Управлял обращениями от внутренних пользователей: классифицировал запросы и переводил их в конкретные технические задачи</li>
+              <li>Контролировал выполнение заданий резервного копирования критичных данных, проводил тестовые восстановления</li>
+              <li>Участвовал в проектах модернизации серверного парка и сетевого оборудования, проводил аудит производительности</li>
+              <li>Проводил первичную диагностику инцидентов и маршрутизировал обращения в профильные команды</li>
+              <li>Поддерживал серверную инфраструктуру: Windows Server, Active Directory, сетевое оборудование</li>
+            </ul>
+            <div class="stack">
+              <span class="chip">Help Desk</span><span class="chip">Zabbix</span><span class="chip">Grafana</span>
+              <span class="chip">CheckMK</span><span class="chip">RabbitMQ</span><span class="chip">Windows Server</span>
+              <span class="chip">Active Directory</span><span class="chip">Nginx</span><span class="chip">Apache</span>
+              <span class="chip">DHCP</span><span class="chip">DNS</span>
+            </div>
+          </article>
+
+          <article class="exp reveal">
+            <div class="exp-top">
+              <div class="exp-role">Инженер отделения организации и внедрения ИТСО</div>
+              <div class="exp-period">Сентябрь 2019 — Январь 2023</div>
+            </div>
+            <div class="exp-company"><b>ФГКУ УВО ВНГ России</b> · Череповец</div>
+            <ul>
+              <li>Руководил дежурной группой быстрого реагирования: ставил задачи, распределял смены, вёл отчётность</li>
+              <li>Составлял графики дежурств и регламентных работ, проводил инструктажи личного состава</li>
+              <li>Проводил очное обучение сотрудников работе с оборудованием охранно-пожарной сигнализации, разрабатывал методические материалы</li>
+              <li>Организовывал ввод в эксплуатацию технических средств охраны: составлял план-графики монтажных работ, контролировал подрядчиков</li>
+              <li>Разрабатывал и актуализировал техническую документацию согласно требованиям ГОСТ</li>
+              <li>Готовил регулярную управленческую отчётность для вышестоящего руководства</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="pm-skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Навыки</div>
+          <h2 class="section-title">Что я умею</h2>
+          <p class="section-sub">Разбито на блоки: управление, инструменты, техника, коммуникации.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card reveal">
+            <h3>Управление и координация</h3>
+            <div class="skill-tags">
+              <span>Project management</span>
+              <span>ITIL / ITSM</span>
+              <span>Agile / Kanban / Scrum</span>
+              <span>Управление рисками</span>
+              <span>Управление стейкхолдерами</span>
+              <span>Фасилитация встреч</span>
+              <span>Приоритизация бэклога</span>
+              <span>Составление отчётности</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal">
+            <h3>Инструменты</h3>
+            <div class="skill-tags">
+              <span>Jira</span>
+              <span>Confluence</span>
+              <span>Grafana</span>
+              <span>Zabbix</span>
+              <span>BPM-система</span>
+              <span>Git</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal">
+            <h3>Технические навыки</h3>
+            <div class="skill-tags">
+              <span>Linux</span>
+              <span>Windows Server</span>
+              <span>Active Directory</span>
+              <span>Docker</span>
+              <span>Kubernetes</span>
+              <span>Bash</span>
+              <span>Python</span>
+              <span>Java</span>
+              <span>TCP/IP</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal">
+            <h3>Коммуникации и обучение</h3>
+            <div class="skill-tags">
+              <span>Онбординг</span>
+              <span>Разработка инструкций</span>
+              <span>Проведение обучения</span>
+              <span>Деловая коммуникация</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="pm-projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Другие проекты</div>
+          <h2 class="section-title">Кейсы, которыми горжусь</h2>
+        </div>
+
+        <div class="proj-grid">
+          <article class="proj reveal">
+            <h3>Стандарты техподдержки</h3>
+            <ul>
+              <li>Участвовал в разработке регламентов и стандартов техподдержки</li>
+              <li>Создавал и наполнял базу знаний в Confluence</li>
+              <li>Описывал типовые инциденты и алгоритмы их решения</li>
+            </ul>
+          </article>
+
+          <article class="proj reveal">
+            <h3>Обучение и наставничество</h3>
+            <ul>
+              <li>Проводил онбординг новых сотрудников</li>
+              <li>Обучал работе с оборудованием охранно-пожарной сигнализации</li>
+              <li>Разрабатывал методические материалы для обучения</li>
+            </ul>
+          </article>
+
+          <article class="proj reveal">
+            <h3>Мониторинг и инфраструктура</h3>
+            <ul>
+              <li>Настраивал триггеры доступности и производительности для новых серверов и приложений</li>
+              <li>Проводил нагрузочное тестирование системы мониторинга</li>
+              <li>Участвовал в модернизации серверного парка и сетевого оборудования</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="pm-education">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Образование</div>
+          <h2 class="section-title">Дипломы и курсы</h2>
+        </div>
+
+        <div class="edu-list">
+          <div class="edu reveal">
+            <span class="edu-year">2019</span>
+            <div class="edu-title">Бакалавр · Инфокоммуникационные технологии и системы связи</div>
+            <div class="edu-org">Санкт-Петербургский государственный университет телекоммуникаций им. проф. М.А. Бонч-Бруевича · Защищённые сети и системы связи</div>
+          </div>
+
+          <div class="edu reveal">
+            <span class="edu-year">ВУС</span>
+            <div class="edu-title">Военно-учётная специальность</div>
+            <div class="edu-org">Эксплуатация и ремонт наземной аппаратуры радиорелейной и тропосферной связи</div>
+          </div>
+
+          <div class="edu reveal">
+            <span class="edu-year">2026</span>
+            <div class="edu-title">Управление ИТ-проектами на базе ПП ПАО «Ростелеком»</div>
+            <div class="edu-org">Ростелеком ИТ Школа · Менеджер проекта</div>
+          </div>
+
+          <div class="edu reveal">
+            <span class="edu-year">2026</span>
+            <div class="edu-title">Продакт-менеджмент</div>
+            <div class="edu-org">VK Education · Менеджер продукта</div>
+          </div>
+
+          <div class="edu reveal">
+            <span class="edu-year">2025</span>
+            <div class="edu-title">Astra Linux · Специалист, AL-802 Администрирование</div>
+            <div class="edu-org">Astra Linux Special Edition 1.8</div>
+          </div>
+
+          <div class="edu reveal">
+            <span class="edu-year">2026</span>
+            <div class="edu-title">Центр оценки компетенций · Менеджер ИТ-продукта</div>
+            <div class="edu-org">Департамент предпринимательства и инновационного развития города Москвы</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="pm-contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Контакты</div>
+          <h2 class="section-title">Давайте обсудим задачу</h2>
+          <p class="section-sub">Открыт к предложениям по управлению ИТ-проектами и продуктами. Отвечаю в течение дня.</p>
+        </div>
+        <div class="contact-wrap">
+          <a class="contact-card" href="mailto:o.i.o-1@mail.ru">
+            <span class="contact-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+            </span>
+            <span>
+              <span class="contact-label">Email</span>
+              <span class="contact-value">o.i.o-1@mail.ru</span>
+            </span>
+          </a>
+          <a class="contact-card" href="https://t.me/ilyaonishchenko" target="_blank" rel="noopener">
+            <span class="contact-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+            </span>
+            <span>
+              <span class="contact-label">Telegram</span>
+              <span class="contact-value">@ilyaonishchenko</span>
+            </span>
+          </a>
+          <a class="contact-card" href="https://vk.com/ilyaonishenko" target="_blank" rel="noopener">
+            <span class="contact-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h2c.5 0 .7.3.9.8.6 1.6 1.4 3 2.1 3 .4 0 .5-.3.5-1.2V9.7c0-.5-.2-.7-.7-.7V9c1.5-.1 2.2-.1 2.7 0 .4 0 .5.3.5.8v3c0 .4.1.6.3.6.4 0 1-1 1.6-2.3.5-.9.8-1.7.9-2h1.7c.4 0 .6.2.6.6 0 .6-.6 1.6-1.3 2.6-.3.4-.4.6-.4.8 0 .2.1.3.4.6.8.8 1.4 1.8 1.4 2.3 0 .4-.3.6-.8.6h-1.5c-.5 0-.8-.2-1.3-.7-.8-.8-1.2-1-1.4-1-.2 0-.3.2-.3.5v.5c0 .5-.2.7-.7.7-2.1 0-4.2-1.6-5.5-4.4C4.6 9.6 4.5 9.5 4 9.5V9z"/></svg>
+            </span>
+            <span>
+              <span class="contact-label">VK</span>
+              <span class="contact-value">vk.com/ilyaonishenko</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /resume-pm -->
+
+
+  <!-- ============ РЕЗЮМЕ 2: РУКОВОДИТЕЛЬ ТЕХПОДДЕРЖКИ ============ -->
+  <div class="resume" id="resume-support" data-resume="support" hidden>
+
+    <section class="hero container">
+      <div class="hero-grid">
+        <div>
+          <span class="role">Руководитель технической поддержки · Team Lead</span>
+          <h1>Технический бэкграунд<br>плюс управление поддержкой</h1>
+          <p class="lead">
+            Более 7 лет в ИТ. Техническая работа идёт параллельно с управленческой:
+            настраиваю оборудование и серверы — и одновременно управляю сменами, ставлю задачи,
+            обучаю людей. Практическая база — Windows Server, Linux, сети TCP/IP, Docker, Kubernetes.
+            Управленческая — Help Desk / Service Desk, SLA, маршрутизация тикетов, мониторинг.
+          </p>
+          <div class="hero-meta">
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Череповец
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Удалённо · Гибрид · Офис
+            </span>
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Готов к командировкам
+            </span>
+          </div>
+          <div class="cta-row">
+            <a href="#support-contact" class="btn btn-primary">
+              Связаться
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="#support-experience" class="btn btn-ghost">Смотреть опыт</a>
+          </div>
+        </div>
+
+        <div class="highlights">
+          <div class="hl"><div class="hl-top">7+ лет</div><div class="hl-bottom">в ИТ и поддержке</div></div>
+          <div class="hl"><div class="hl-top">3 года</div><div class="hl-bottom">управленческой практики</div></div>
+          <div class="hl"><div class="hl-top">10 человек</div><div class="hl-bottom">в управляемой смене</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="support-about">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Обо мне</div>
+          <h2 class="section-title">Инженер, который управляет и продолжает работать руками</h2>
+        </div>
+
+        <p style="color: var(--text-muted); max-width: 760px;">
+          Более 7 лет в ИТ — техническая работа идёт параллельно с управленческой. На каждой позиции
+          совмещал обе роли: настраивал оборудование и серверы, и одновременно управлял сменами,
+          ставил задачи, обучал людей, выстраивал процессы. Знаю работу поддержки изнутри —
+          поэтому выстраиваю её системно, а не по инструкции сверху.
+        </p>
+
+        <p style="color: var(--text-muted); max-width: 760px;">
+          Практическая база — администрирование Windows Server и Linux, сети TCP/IP, Docker
+          и Kubernetes. Управленческая — построение Help Desk / Service Desk: настройка SLA,
+          маршрутизация тикетов и очередей в Jira, внедрение мониторинга для проактивного
+          реагирования на инциденты.
+        </p>
+
+        <p style="color: var(--text-muted); max-width: 760px;">
+          Отдельный навык — объяснять сложное простым языком: обучаю команду, разрабатываю
+          инструкции, провожу онбординг. Специализация — построение эффективных команд
+          и оптимизация процессов поддержки в B2B/B2C-сегментах. Не закрываю инциденты поштучно,
+          а выстраиваю систему: регламенты, база знаний, распределение нагрузки, развитие персонала.
+        </p>
+
+        <p style="color: var(--text-muted); max-width: 760px;">
+          Прошёл профильные курсы по Linux, управлению ИТ-проектами и продуктами. Ответственность
+          и дисциплину дала служба в органах внутренних дел: сохраняю хладнокровие в стрессовых
+          ситуациях и принимаю решения, когда что-то горит.
+        </p>
+      </div>
+    </section>
+
+    <section class="block" id="support-experience">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Опыт работы</div>
+          <h2 class="section-title">Где я работал и что делал</h2>
+        </div>
+
+        <div class="exp-list">
+
+          <article class="exp reveal">
+            <div class="exp-top">
+              <div class="exp-role">Инженер по поддержке приложений</div>
+              <div class="exp-period">Март 2024 — наст. время</div>
+            </div>
+            <div class="exp-company"><b>Северсталь Диджитал</b> · Череповец · металлургия</div>
+            <ul>
+              <li>Помогал разрабатывать и внедрять стандарты технической поддержки</li>
+              <li>Участвовал в создании базы знаний в Confluence — уменьшилось время решения типовых инцидентов</li>
+              <li>Управлял сменным графиком дежурств команды, заполнял табели учёта времени и переноса смен</li>
+              <li>Помогал контролировать соблюдение SLA при обработке обращений</li>
+              <li>Взаимодействовал со смежными командами (разработка, аналитика, инженеры данных, архитекторы): постановка задач и расследование сложных сбоев</li>
+              <li>Участвовал в согласовании плановых работ и технологических окон, а также в оповещении о них</li>
+              <li>Проводил диагностику приложений при сбоях, работал с Docker и Kubernetes: настройка контейнеров, чтение логов, выкатка изменений, параметры подов</li>
+              <li>Вёл мониторинг работоспособности систем через Zabbix и Grafana — реагирование на алерты, проактивность</li>
+              <li>Обрабатывал обращения пользователей и заказчиков: инциденты в BPM-системе, заявки, звонки, задачи в Jira</li>
+            </ul>
+            <div class="stack">
+              <span class="chip">BPM</span><span class="chip">Docker</span><span class="chip">Kubernetes</span>
+              <span class="chip">Zabbix</span><span class="chip">Grafana</span><span class="chip">Jira</span>
+              <span class="chip">Confluence</span><span class="chip">Git</span><span class="chip">Java</span>
+              <span class="chip">Python</span><span class="chip">Bash</span><span class="chip">Linux</span>
+            </div>
+          </article>
+
+          <article class="exp reveal">
+            <div class="exp-top">
+              <div class="exp-role">Инженер группы мониторинга</div>
+              <div class="exp-period">АО «НПФ Эволюция»</div>
+            </div>
+            <div class="exp-company"><b>АО «НПФ Эволюция»</b> · Череповец · финансовый сектор</div>
+            <ul>
+              <li>Осуществлял мониторинг функционирования ИТ-инфраструктуры и критичных бизнес-систем</li>
+              <li>Участвовал в развитии ИТ-инфраструктуры компании и проектах по её модернизации, включая внедрение системы мониторинга Zabbix</li>
+              <li>Выполнял настройку и отладку производительности серверов и сетевого оборудования</li>
+              <li>Координировал плановые обновления ИТ-систем: тестировал патчи, согласовывал технологические окна</li>
+              <li>Управлял обращениями внутренних пользователей: классифицировал запросы и переводил в конкретные технические задачи</li>
+              <li>Контролировал резервное копирование критичных данных, проводил тестовые восстановления</li>
+              <li>Проводил первичную диагностику инцидентов и маршрутизировал обращения в профильные команды</li>
+            </ul>
+            <div class="stack">
+              <span class="chip">Help Desk</span><span class="chip">Grafana</span><span class="chip">CheckMK</span>
+              <span class="chip">RabbitMQ</span><span class="chip">Windows Server</span><span class="chip">виртуализация</span>
+              <span class="chip">Nginx</span><span class="chip">Apache</span><span class="chip">Zabbix</span>
+            </div>
+          </article>
+
+          <article class="exp reveal">
+            <div class="exp-top">
+              <div class="exp-role">Инженер отделения организации и внедрения ИТСО</div>
+              <div class="exp-period">Сентябрь 2019 — Январь 2023</div>
+            </div>
+            <div class="exp-company"><b>ФГКУ УВО ВНГ России</b> · Череповец</div>
+            <ul>
+              <li>Руководил дежурной группой быстрого реагирования: постановка задач, ведение отчётности</li>
+              <li>Проводил собеседования кандидатов и обучение сотрудников работе с оборудованием</li>
+              <li>Разрабатывал инструкции по пользованию охранно-пожарной сигнализацией</li>
+              <li>Настраивал и поддерживал работоспособность серверов мониторинга охранно-пожарной сигнализации и IP-телефонии</li>
+              <li>Организовывал ввод в эксплуатацию технических средств охраны, контролировал регламентные работы</li>
+              <li>Работал с ГОСТ-документами: проверка на соответствие, заполнение согласно требованиям законодательства</li>
+              <li>Составлял акты и отчёты о проверке систем</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="support-skills">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Навыки</div>
+          <h2 class="section-title">Что я умею</h2>
+          <p class="section-sub">Четыре блока: команда, процессы, мониторинг, техника.</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-card reveal">
+            <h3>Управление командой</h3>
+            <div class="skill-tags">
+              <span>Найм и собеседования</span>
+              <span>Онбординг</span>
+              <span>Наставничество</span>
+              <span>Обучение сотрудников</span>
+              <span>Распределение нагрузки on-call</span>
+              <span>Составление графиков</span>
+              <span>Развитие персонала</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal">
+            <h3>Процессы поддержки</h3>
+            <div class="skill-tags">
+              <span>Help Desk / Service Desk</span>
+              <span>ITIL / ITSM</span>
+              <span>Настройка SLA</span>
+              <span>Маршрутизация тикетов</span>
+              <span>Управление инцидентами</span>
+              <span>Post-mortem анализ</span>
+              <span>Составление отчётности</span>
+              <span>Разработка инструкций</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal">
+            <h3>Мониторинг и техника</h3>
+            <div class="skill-tags">
+              <span>Zabbix</span>
+              <span>Grafana</span>
+              <span>CheckMK</span>
+              <span>Linux (Ubuntu / CentOS)</span>
+              <span>Windows Server</span>
+              <span>Active Directory</span>
+              <span>TCP/IP · DHCP · DNS</span>
+              <span>Docker</span>
+              <span>Kubernetes</span>
+              <span>Git</span>
+            </div>
+          </div>
+
+          <div class="skill-card reveal">
+            <h3>Инструменты и софт-скиллы</h3>
+            <div class="skill-tags">
+              <span>Jira / Confluence</span>
+              <span>BPM-система</span>
+              <span>MS Excel</span>
+              <span>Лидерство</span>
+              <span>Системное мышление</span>
+              <span>Деловая коммуникация</span>
+              <span>Работа в стрессе</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="support-projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Ключевые проекты</div>
+          <h2 class="section-title">Что делал и к чему пришёл</h2>
+        </div>
+
+        <div class="proj-grid">
+          <article class="proj reveal">
+            <h3>Service Desk и база знаний</h3>
+            <ul>
+              <li>Участвовал в разработке и внедрении стандартов технической поддержки</li>
+              <li>Создавал и наполнял базу знаний в Confluence</li>
+              <li>Описывал типовые инциденты и алгоритмы их решения</li>
+              <li>Помогал выстраивать маршрутизацию обращений между командами</li>
+            </ul>
+          </article>
+
+          <article class="proj reveal">
+            <h3>Команда и наставничество</h3>
+            <ul>
+              <li>Проводил собеседования кандидатов в поддержку</li>
+              <li>Обучал сотрудников работе с оборудованием и внутренними системами</li>
+              <li>Разрабатывал инструкции и методические материалы</li>
+              <li>Вёл сменный график дежурств, распределял нагрузку</li>
+            </ul>
+          </article>
+
+          <article class="proj reveal">
+            <h3>Мониторинг и проактивность</h3>
+            <ul>
+              <li>Участвовал во внедрении Zabbix и настройке триггеров</li>
+              <li>Вёл дашборды Grafana для контроля здоровья сервисов</li>
+              <li>Проводил нагрузочное тестирование системы мониторинга</li>
+              <li>Работал с Docker/Kubernetes: диагностика, чтение логов, выкатка</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="support-education">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Образование</div>
+          <h2 class="section-title">Дипломы и курсы</h2>
+        </div>
+
+        <div class="edu-list">
+          <div class="edu reveal">
+            <span class="edu-year">2019</span>
+            <div class="edu-title">Бакалавр · Инфокоммуникационные технологии и системы связи</div>
+            <div class="edu-org">Санкт-Петербургский государственный университет телекоммуникаций им. проф. М.А. Бонч-Бруевича · Защищённые сети и системы связи</div>
+          </div>
+
+          <div class="edu reveal">
+            <span class="edu-year">ВУС</span>
+            <div class="edu-title">Военно-учётная специальность</div>
+            <div class="edu-org">Эксплуатация и ремонт наземной аппаратуры радиорелейной и тропосферной связи</div>
+          </div>
+
+          <div class="edu reveal">
+            <span class="edu-year">2026</span>
+            <div class="edu-title">Продакт-менеджмент</div>
+            <div class="edu-org">VK Education · Менеджер продукта</div>
+          </div>
+
+          <div class="edu reveal">
+            <span class="edu-year">2026</span>
+            <div class="edu-title">Управление ИТ-проектами на базе ПП ПАО «Ростелеком»</div>
+            <div class="edu-org">Ростелеком ИТ Школа · Менеджер ИТ-проектов</div>
+          </div>
+
+          <div class="edu reveal">
+            <span class="edu-year">2025</span>
+            <div class="edu-title">Astra Linux · Специалист, AL-802 Администрирование</div>
+            <div class="edu-org">Astra Linux Special Edition 1.8</div>
+          </div>
+
+          <div class="edu reveal">
+            <span class="edu-year">—</span>
+            <div class="edu-title">Администрирование Linux</div>
+            <div class="edu-org">Слёрм · Администратор Linux (базовый курс)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="support-contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Контакты</div>
+          <h2 class="section-title">Давайте обсудим задачи поддержки</h2>
+          <p class="section-sub">Открыт к предложениям на роль руководителя поддержки / Team Lead / Service Desk Manager.</p>
+        </div>
+        <div class="contact-wrap">
+          <a class="contact-card" href="mailto:o.i.o-1@mail.ru">
+            <span class="contact-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+            </span>
+            <span>
+              <span class="contact-label">Email</span>
+              <span class="contact-value">o.i.o-1@mail.ru</span>
+            </span>
+          </a>
+          <a class="contact-card" href="https://t.me/ilyaonishchenko" target="_blank" rel="noopener">
+            <span class="contact-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+            </span>
+            <span>
+              <span class="contact-label">Telegram</span>
+              <span class="contact-value">@ilyaonishchenko</span>
+            </span>
+          </a>
+          <a class="contact-card" href="https://vk.com/ilyaonishenko" target="_blank" rel="noopener">
+            <span class="contact-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h2c.5 0 .7.3.9.8.6 1.6 1.4 3 2.1 3 .4 0 .5-.3.5-1.2V9.7c0-.5-.2-.7-.7-.7V9c1.5-.1 2.2-.1 2.7 0 .4 0 .5.3.5.8v3c0 .4.1.6.3.6.4 0 1-1 1.6-2.3.5-.9.8-1.7.9-2h1.7c.4 0 .6.2.6.6 0 .6-.6 1.6-1.3 2.6-.3.4-.4.6-.4.8 0 .2.1.3.4.6.8.8 1.4 1.8 1.4 2.3 0 .4-.3.6-.8.6h-1.5c-.5 0-.8-.2-1.3-.7-.8-.8-1.2-1-1.4-1-.2 0-.3.2-.3.5v.5c0 .5-.2.7-.7.7-2.1 0-4.2-1.6-5.5-4.4C4.6 9.6 4.5 9.5 4 9.5V9z"/></svg>
+            </span>
+            <span>
+              <span class="contact-label">VK</span>
+              <span class="contact-value">vk.com/ilyaonishenko</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /resume-support -->
+
+</main>
+
+<footer class="container">
+  <div>© <span id="year"></span> Илья Онищенко</div>
+  <div>Резюме обновлено: <span id="updated"></span></div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('updated').textContent = new Date().toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+
+  themeToggle.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch(e) {}
+  });
+
+  const tabs = document.querySelectorAll('.segmented [data-tab]');
+  const resumes = document.querySelectorAll('.resume[data-resume]');
+  const navLinks = document.querySelectorAll('.nav a[data-target], .mobile-nav a[data-target]');
+  const mobileNav = document.getElementById('mobileNav');
+  const burger = document.getElementById('burger');
+
+  function showResume(name, scrollTop = true) {
+    if (!['pm', 'support'].includes(name)) name = 'pm';
+
+    resumes.forEach(r => {
+      r.hidden = r.dataset.resume !== name;
+    });
+
+    tabs.forEach(t => {
+      const active = t.dataset.tab === name;
+      t.classList.toggle('active', active);
+      t.setAttribute('aria-selected', String(active));
+    });
+
+    navLinks.forEach(l => {
+      l.href = `#${name}-${l.dataset.target}`;
+    });
+
+    if (history.replaceState) {
+      history.replaceState(null, '', `#${name}`);
+    } else {
+      location.hash = name;
+    }
+
+    if (scrollTop) {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+
+    requestAnimationFrame(revealVisible);
+  }
+
+  tabs.forEach(t => {
+    t.addEventListener('click', () => {
+      showResume(t.dataset.tab);
+      closeMobileNav();
+    });
+  });
+
+  function openMobileNav() {
+    mobileNav.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileNav() {
+    mobileNav.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  burger.addEventListener('click', () => {
+    mobileNav.classList.contains('open') ? closeMobileNav() : openMobileNav();
+  });
+  mobileNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', closeMobileNav);
+  });
+
+  function updateActiveNav() {
+    const current = document.querySelector('.resume:not([hidden])');
+    if (!current) return;
+    const y = window.scrollY + 110;
+    let activeId = '';
+    current.querySelectorAll('section[id]').forEach(s => {
+      if (s.offsetTop <= y) activeId = s.id;
+    });
+    const target = activeId ? activeId.split('-').pop() : '';
+    document.querySelectorAll('.nav a[data-target]').forEach(l => {
+      l.classList.toggle('active', l.dataset.target === target);
+    });
+  }
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  function observeReveals() {
+    document.querySelectorAll('.reveal:not(.visible)').forEach(el => io.observe(el));
+  }
+  function revealVisible() {
+    const current = document.querySelector('.resume:not([hidden])');
+    if (!current) return;
+    current.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) el.classList.add('visible');
+    });
+  }
+
+  const initial = location.hash === '#support' ? 'support' : 'pm';
+  showResume(initial, false);
+  observeReveals();
+  updateActiveNav();
+  revealVisible();
+
+  window.addEventListener('hashchange', () => {
+    const h = location.hash.replace('#', '');
+    if (h.startsWith('support')) showResume('support', false);
+    else if (h.startsWith('pm')) showResume('pm', false);
+  });
+</script>
+</body>
+</html>
