@@ -1,18 +1,65 @@
 <!DOCTYPE html>
 <html lang="ru" data-theme="light">
 <head>
+
+<!-- ============================================================
+     ШПАРГАЛКА: ЧТО ГДЕ МЕНЯТЬ
+     ============================================================
+
+     1. ИМЯ, ДОЛЖНОСТЬ, ОПИСАНИЕ, ССЫЛКИ НА СОЦСЕТИ
+        → ищи комментарии со словом "МЕНЯТЬ" в этом файле
+
+     2. ЦВЕТА И ТЕМА
+        → блок <style>, переменные в :root и [data-theme="dark"]
+
+     3. ДВА РЕЗЮМЕ (Менеджер проектов / Руководитель поддержки)
+        → ищи <div class="resume" ... data-resume="pm"> — это первое
+        → ищи <div class="resume" ... data-resume="support" hidden> — второе
+
+     4. ОПЫТ РАБОТЫ
+        → <section class="block" id="pm-experience"> и support-experience
+        → каждая работа — отдельный <article class="exp reveal">
+
+     5. НАВЫКИ
+        → <section class="block" id="pm-skills"> и support-skills
+
+     6. ОБРАЗОВАНИЕ И КУРСЫ
+        → <section class="block" id="pm-education"> и support-education
+
+     7. КОНТАКТЫ
+        → <section class="block" id="pm-contact"> и support-contact
+        → телефон убран, оставлены email, Telegram, VK
+
+     8. ЦИФРОВЫЕ БЛОКИ В HERO (7+ лет, 3 года, 10 человек)
+        → <div class="highlights">
+
+     ВАЖНО: Не удаляйте классы (class="...") и id — они отвечают
+     за стили и переключение табов. Меняйте только текст между тегами.
+     ============================================================ -->
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- МЕНЯТЬ: Заголовок вкладки браузера и SEO-описание -->
 <title>Илья Онищенко — Менеджер проектов / Руководитель поддержки</title>
 <meta name="description" content="Илья Онищенко — 7+ лет в ИТ. Совмещаю техническую работу с управленческой: Linux/Windows Server, мониторинг, Docker/Kubernetes плюс управление командами и процессами поддержки." />
+
+<!-- МЕНЯТЬ: Превью ссылки в Telegram, VK, WhatsApp -->
 <meta property="og:title" content="Илья Онищенко — Менеджер проектов / Руководитель поддержки" />
 <meta property="og:description" content="7+ лет в ИТ. Совмещаю техническую работу с управленческой: администрирование, мониторинг, координация команд и процессов поддержки." />
 <meta property="og:type" content="profile" />
 <meta name="twitter:card" content="summary" />
+
+<!-- Favicon: SVG-иконка «ИО» прямо в коде. Можно заменить на свой файл: -->
+<!-- <link rel="icon" type="image/png" href="favicon.png" /> -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%232f6df6'/><text x='50' y='68' font-family='Arial' font-size='52' font-weight='bold' fill='white' text-anchor='middle'>ИО</text></svg>" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- СКРИПТ ТЕМЫ: срабатывает ДО отрисовки, чтобы не было вспышки белым.
+     Если пользуетесь светлой темой постоянно — не трогайте. -->
 <script>
   (function() {
     try {
@@ -22,27 +69,36 @@
     } catch(e) {}
   })();
 </script>
+
 <style>
+  /* ============================================================
+     ПЕРЕМЕННЫЕ ЦВЕТОВ
+     ============================================================
+     Меняете значения — меняется весь дизайн.
+     --accent — основной акцентный цвет (кнопки, ссылки, точки).
+     --bg — фон страницы. --text — основной цвет текста. -->
+
   :root,
   [data-theme="light"] {
-    --bg: #ffffff;
-    --bg-soft: #f6f7f9;
-    --bg-card: #ffffff;
-    --text: #12161c;
-    --text-muted: #5a6472;
-    --text-soft: #8a94a3;
-    --accent: #2f6df6;
-    --accent-soft: #e8f0ff;
-    --accent-contrast: #ffffff;
-    --border: #e6e9ef;
-    --border-strong: #d4dae3;
+    --bg: #ffffff;              /* фон страницы (светлая тема) */
+    --bg-soft: #f6f7f9;         /* мягкий фон: плашки, чипы */
+    --bg-card: #ffffff;         /* фон карточек */
+    --text: #12161c;            /* основной текст */
+    --text-muted: #5a6472;      /* текст второго уровня */
+    --text-soft: #8a94a3;       /* подписи, метаданные */
+    --accent: #2f6df6;          /* АКЦЕНТ: кнопки, ссылки, точки списков */
+    --accent-soft: #e8f0ff;     /* мягкий акцент: фон подписей, иконок */
+    --accent-contrast: #ffffff; /* текст на акцентном фоне */
+    --border: #e6e9ef;          /* границы */
+    --border-strong: #d4dae3;   /* границы при наведении */
     --shadow: 0 1px 2px rgba(16,24,40,.04), 0 8px 24px rgba(16,24,40,.06);
-    --radius: 14px;
-    --maxw: 980px;
-    --header-h: 64px;
+    --radius: 14px;             /* скругление карточек */
+    --maxw: 980px;              /* максимальная ширина контента */
+    --header-h: 64px;           /* высота шапки */
     --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   }
 
+  /* Тёмная тема: включается кнопкой в шапке или системной настройкой */
   [data-theme="dark"] {
     --bg: #0e1116;
     --bg-soft: #141922;
@@ -58,6 +114,7 @@
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
   }
 
+  /* ---------- Базовые сбросы ---------- */
   *, *::before, *::after { box-sizing: border-box; }
   [hidden] { display: none !important; }
   html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); }
@@ -79,6 +136,7 @@
   p { margin: 0 0 1em; }
   button { font-family: inherit; }
 
+  /* Общий контейнер: центрирует контент и задаёт отступы */
   .container {
     width: 100%;
     max-width: var(--maxw);
@@ -86,6 +144,7 @@
     padding: 0 24px;
   }
 
+  /* ---------- Шапка (липкая, с блюром) ---------- */
   .header {
     position: sticky; top: 0; z-index: 50;
     background: color-mix(in srgb, var(--bg) 88%, transparent);
@@ -114,6 +173,7 @@
   .logo-text { display: none; }
   @media (min-width: 640px) { .logo-text { display: inline; } }
 
+  /* Переключатель резюме (табы в шапке) */
   .segmented {
     display: none;
     margin: 0 auto;
@@ -139,6 +199,7 @@
     box-shadow: 0 1px 2px rgba(16,24,40,.06);
   }
 
+  /* Меню навигации по секциям */
   .nav { display: flex; gap: 2px; margin-left: auto; }
   .nav a {
     color: var(--text-muted); font-size: 13.5px; font-weight: 500;
@@ -153,6 +214,7 @@
 
   .header-controls { display: flex; gap: 6px; align-items: center; }
 
+  /* Кнопки-иконки (тема, бургер) */
   .icon-btn {
     width: 40px; height: 40px;
     border-radius: 10px;
@@ -167,12 +229,14 @@
   .icon-btn:active { transform: scale(.96); }
   .icon-btn svg { width: 18px; height: 18px; }
 
+  /* Показ иконки луны/солнца в зависимости от темы */
   [data-theme="light"] .icon-sun { display: none; }
   [data-theme="dark"] .icon-moon { display: none; }
 
   .burger { display: none; }
   @media (max-width: 1080px) { .burger { display: inline-flex; } }
 
+  /* Мобильное меню (выезжает из-под шапки) */
   .mobile-nav {
     display: none;
     position: fixed; top: var(--header-h); left: 0; right: 0; bottom: 0;
@@ -195,6 +259,7 @@
   }
   .mobile-nav a:last-of-type { border-bottom: 0; }
 
+  /* ---------- Hero (первый экран) ---------- */
   .hero { padding: 64px 0 48px; }
   .hero-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
   .hero h1 {
@@ -217,6 +282,7 @@
   .hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
   .hero-meta svg { width: 15px; height: 15px; flex-shrink: 0; }
 
+  /* Кнопки */
   .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
   .btn {
     display: inline-flex; align-items: center; gap: 8px;
@@ -236,6 +302,7 @@
   }
   .btn-ghost:hover { background: var(--bg-soft); border-color: var(--border-strong); }
 
+  /* ---------- Секции (общий блок) ---------- */
   section.block { padding: 60px 0; border-top: 1px solid var(--border); }
   .section-head { margin-bottom: 28px; }
   .section-kicker {
@@ -250,6 +317,7 @@
     color: var(--text-muted); margin-top: 8px; max-width: 680px;
   }
 
+  /* ---------- Цифровые карточки в hero (7+ лет и т.п.) ---------- */
   .highlights {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 12px;
@@ -261,6 +329,7 @@
   .hl .hl-top { font-size: 20px; font-weight: 800; letter-spacing: -0.02em; color: var(--accent); }
   .hl .hl-bottom { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
 
+  /* ---------- Опыт работы ---------- */
   .exp-list { display: flex; flex-direction: column; gap: 20px; }
   .exp {
     background: var(--bg-card); border: 1px solid var(--border);
@@ -270,20 +339,22 @@
     display: flex; flex-wrap: wrap; justify-content: space-between;
     align-items: baseline; gap: 6px 16px; margin-bottom: 4px;
   }
-  .exp-role { font-size: 16.5px; font-weight: 700; }
+  .exp-role { font-size: 16.5px; font-weight: 700; }         /* название должности */
   .exp-period { font-size: 12.5px; font-weight: 600; color: var(--text-soft); white-space: nowrap; }
   .exp-company { color: var(--text-muted); font-size: 14px; margin-bottom: 14px; }
-  .exp-company b { color: var(--text); font-weight: 600; }
+  .exp-company b { color: var(--text); font-weight: 600; }   /* название компании жирным */
   .exp ul { display: flex; flex-direction: column; gap: 8px; }
   .exp li {
     position: relative; padding-left: 20px;
     color: var(--text-muted); font-size: 14.5px;
   }
-  .exp li::before {
+  .exp li::before {                                          /* точка-буллет слева */
     content: ""; position: absolute; left: 0; top: 9px;
     width: 6px; height: 6px; border-radius: 50%;
     background: var(--accent); opacity: .7;
   }
+
+  /* Строка с технологиями (чипы внизу карточки опыта) */
   .stack {
     display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px;
     padding-top: 14px; border-top: 1px dashed var(--border);
@@ -295,6 +366,7 @@
     border: 1px solid var(--border);
   }
 
+  /* ---------- Навыки ---------- */
   .skills-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 16px;
@@ -307,7 +379,7 @@
     font-size: 14.5px; font-weight: 700; margin-bottom: 12px;
     display: flex; align-items: center; gap: 8px;
   }
-  .skill-card h3::before {
+  .skill-card h3::before {                                   /* точка перед заголовком */
     content: ""; width: 6px; height: 6px; border-radius: 50%;
     background: var(--accent); flex-shrink: 0;
   }
@@ -318,6 +390,7 @@
     padding: 5px 10px; border-radius: 8px;
   }
 
+  /* ---------- Проекты ---------- */
   .proj-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 16px;
@@ -334,17 +407,18 @@
     font-size: 13.5px; color: var(--text-muted);
     position: relative; padding-left: 18px;
   }
-  .proj li::before {
+  .proj li::before {                                         /* галочка ✓ слева */
     content: "✓"; position: absolute; left: 0;
     color: var(--accent); font-weight: 700; font-size: 12px; top: 2px;
   }
 
+  /* ---------- Образование и курсы ---------- */
   .edu-list { display: flex; flex-direction: column; gap: 12px; }
   .edu {
     background: var(--bg-card); border: 1px solid var(--border);
     border-radius: var(--radius); padding: 16px 20px; box-shadow: var(--shadow);
   }
-  .edu-year {
+  .edu-year {                                                /* плашка с годом */
     display: inline-block; font-size: 12px; font-weight: 700;
     color: var(--accent); background: var(--accent-soft);
     padding: 3px 9px; border-radius: 999px; margin-bottom: 8px;
@@ -352,6 +426,7 @@
   .edu-title { font-weight: 700; font-size: 15px; margin-bottom: 2px; }
   .edu-org { color: var(--text-muted); font-size: 13.5px; }
 
+  /* ---------- Контакты ---------- */
   .contact-wrap {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 12px;
@@ -364,7 +439,7 @@
     transition: border-color .15s ease, transform .1s ease;
   }
   .contact-card:hover { border-color: var(--accent); text-decoration: none; transform: translateY(-1px); }
-  .contact-ico {
+  .contact-ico {                                             /* круглая иконка слева */
     flex-shrink: 0; width: 36px; height: 36px; border-radius: 10px;
     background: var(--accent-soft); color: var(--accent);
     display: grid; place-items: center;
@@ -373,20 +448,23 @@
   .contact-label { display: block; font-size: 12px; color: var(--text-soft); }
   .contact-value { display: block; font-size: 14px; font-weight: 600; color: var(--text); word-break: break-word; }
 
+  /* ---------- Футер ---------- */
   footer {
     padding: 28px 0 44px; border-top: 1px solid var(--border);
     color: var(--text-soft); font-size: 12.5px;
     display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
   }
 
+  /* ---------- Адаптив (мобильные) ---------- */
   @media (max-width: 720px) {
     .hero { padding: 44px 0 36px; }
     section.block { padding: 44px 0; }
     .exp { padding: 18px; }
-    .exp-period { width: 100%; }
+    .exp-period { width: 100%; }      /* дата переезжает под должность */
     .container { padding: 0 18px; }
   }
 
+  /* ---------- Анимация появления блоков при скролле ---------- */
   .reveal { opacity: 0; transform: translateY(12px); transition: opacity .5s ease, transform .5s ease; }
   .reveal.visible { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
@@ -394,6 +472,7 @@
     .reveal { opacity: 1; transform: none; transition: none; }
   }
 
+  /* ---------- Печать (Ctrl+P → PDF) ---------- */
   @media print {
     :root, [data-theme] { --shadow: none; --bg: #fff; --bg-soft: #f4f5f7; --bg-card: #fff; --text: #111; --text-muted: #444; --border: #ddd; }
     .header, .mobile-nav, .segmented, .cta-row, .header-controls { display: none !important; }
@@ -410,18 +489,29 @@
 </head>
 <body>
 
+<!-- ============================================================
+     ШАПКА САЙТА
+     ============================================================ -->
 <header class="header">
   <div class="container header-inner">
+
+    <!-- Логотип: инициалы + имя. МЕНЯТЬ: «ИО» и «Илья Онищенко» -->
     <a href="#" class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
       <span class="logo-mark">ИО</span>
       <span class="logo-text">Илья Онищенко</span>
     </a>
 
+    <!-- Табы переключения между двумя резюме.
+         data-tab="pm" — резюме менеджера проектов,
+         data-tab="support" — резюме руководителя поддержки.
+         МЕНЯТЬ: только текст кнопок, атрибуты data-tab не трогайте. -->
     <div class="segmented" role="tablist" aria-label="Переключение резюме">
       <button type="button" data-tab="pm" role="tab">Менеджер проектов</button>
       <button type="button" data-tab="support" role="tab">Руководитель поддержки</button>
     </div>
 
+    <!-- Навигация по секциям. data-target — привязка к id секции.
+         Ссылки автоматически меняются при переключении резюме. -->
     <nav class="nav" aria-label="Основная навигация">
       <a href="#pm-about" data-target="about">Обо мне</a>
       <a href="#pm-experience" data-target="experience">Опыт</a>
@@ -432,6 +522,7 @@
     </nav>
 
     <div class="header-controls">
+      <!-- Кнопка переключения светлой/тёмной темы -->
       <button class="icon-btn" id="themeToggle" aria-label="Переключить тему" title="Светлая / тёмная тема">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
@@ -448,6 +539,8 @@
           <line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/>
         </svg>
       </button>
+
+      <!-- Бургер (появляется только на мобильных) -->
       <button class="icon-btn burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileNav">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -455,6 +548,9 @@
   </div>
 </header>
 
+<!-- ============================================================
+     МОБИЛЬНОЕ МЕНЮ (дублирует шапку для мобильных)
+     ============================================================ -->
 <div class="mobile-nav" id="mobileNav">
   <div class="segmented" role="tablist" aria-label="Переключение резюме">
     <button type="button" data-tab="pm" role="tab">Менеджер проектов</button>
@@ -470,20 +566,33 @@
 
 <main>
 
-  <!-- ============ РЕЗЮМЕ 1: МЕНЕДЖЕР ПРОЕКТОВ ============ -->
+  <!-- ============================================================
+       РЕЗЮМЕ №1: МЕНЕДЖЕР ПРОЕКТОВ
+       Показывается по умолчанию. Второе резюме — ниже.
+       ============================================================ -->
   <div class="resume" id="resume-pm" data-resume="pm">
 
+    <!-- ---------- HERO: первый экран ---------- -->
     <section class="hero container">
       <div class="hero-grid">
         <div>
+
+          <!-- МЕНЯТЬ: роль в плашке над заголовком -->
           <span class="role">Менеджер проектов · IT Project Manager</span>
+
+          <!-- МЕНЯТЬ: главный заголовок. <br> — перенос строки -->
           <h1>Технический бэкграунд<br>плюс управление проектами</h1>
+
+          <!-- МЕНЯТЬ: описание под заголовком (2–4 предложения) -->
           <p class="lead">
             Более 7 лет в ИТ. На всём протяжении совмещаю техническую работу с управленческой:
             настраиваю инфраструктуру и координирую смены, разбираюсь в инцидентах и ставлю задачи команде.
             Практическая база — Linux/Windows Server, мониторинг, Docker, Kubernetes.
             Управленческая — декомпозиция задач, контроль сроков, процессы поддержки согласно ITIL.
           </p>
+
+          <!-- Мета-информация: город, формат, готовность.
+               МЕНЯТЬ: текст внутри <span>. Иконки не трогайте. -->
           <div class="hero-meta">
             <span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -498,6 +607,8 @@
               Готов к командировкам
             </span>
           </div>
+
+          <!-- Кнопки. Ссылки ведут на секцию контактов и секцию опыта -->
           <div class="cta-row">
             <a href="#pm-contact" class="btn btn-primary">
               Связаться
@@ -507,6 +618,9 @@
           </div>
         </div>
 
+        <!-- Цифровые карточки в hero.
+             МЕНЯТЬ: значение в .hl-top, подпись в .hl-bottom.
+             Чтобы добавить новую — скопируйте <div class="hl">...</div>. -->
         <div class="highlights">
           <div class="hl"><div class="hl-top">7+ лет</div><div class="hl-bottom">в ИТ и инфраструктуре</div></div>
           <div class="hl"><div class="hl-top">10 человек</div><div class="hl-bottom">в управляемой смене</div></div>
@@ -515,13 +629,16 @@
       </div>
     </section>
 
+    <!-- ---------- ОБО МНЕ ---------- -->
     <section class="block" id="pm-about">
       <div class="container">
         <div class="section-head">
-          <div class="section-kicker">Обо мне</div>
+          <div class="section-kicker">Обо мне</div>            <!-- МЕНЯТЬ: маленькая надпись над заголовком -->
           <h2 class="section-title">Инженер, который работает и руками, и головой</h2>
         </div>
 
+        <!-- Абзацы. Чтобы добавить ещё — скопируйте <p>...</p> и вставьте ниже.
+             Стиль инлайн (color и max-width) можно не трогать. -->
         <p style="color: var(--text-muted); max-width: 760px;">
           Более 7 лет в ИТ — на всём протяжении совмещаю техническую работу с управленческой.
           На каждой позиции параллельно вёл два трека: настраивал инфраструктуру и координировал смены,
@@ -552,6 +669,10 @@
       </div>
     </section>
 
+    <!-- ---------- ОПЫТ РАБОТЫ ----------
+         Каждая работа — отдельный <article class="exp reveal">.
+         Чтобы добавить новую работу, скопируйте целиком один <article> и вставьте ниже.
+         Чтобы удалить — удалите весь <article> от <article> до </article>. -->
     <section class="block" id="pm-experience">
       <div class="container">
         <div class="section-head">
@@ -561,12 +682,14 @@
 
         <div class="exp-list">
 
+          <!-- ===== РАБОТА №1 ===== -->
           <article class="exp reveal">
             <div class="exp-top">
-              <div class="exp-role">Инженер по поддержке приложений</div>
-              <div class="exp-period">Март 2024 — наст. время</div>
+              <div class="exp-role">Инженер по поддержке приложений</div>     <!-- МЕНЯТЬ: должность -->
+              <div class="exp-period">Март 2024 — наст. время</div>            <!-- МЕНЯТЬ: период -->
             </div>
             <div class="exp-company"><b>Северсталь Диджитал</b> · Череповец · металлургия</div>
+            <!-- МЕНЯТЬ: список задач. Каждый пункт — отдельный <li>. -->
             <ul>
               <li>Собирал требования с владельцев систем, настраивал дашборды Grafana для проактивного оповещения</li>
               <li>Вёл инциденты и обращения через BPM-систему и Jira — от первичной диагностики до передачи в профильные команды</li>
@@ -577,6 +700,7 @@
               <li>Участвовал в создании базы знаний в Confluence: описывал типовые инциденты и регламенты</li>
               <li>Ставил задачи командам разработки, аналитики и DevOps на расследование инцидентов и изменение конфигураций</li>
             </ul>
+            <!-- Технологии: добавляйте/убирайте <span class="chip">…</span>. -->
             <div class="stack">
               <span class="chip">BPM</span><span class="chip">Docker</span><span class="chip">Kubernetes</span>
               <span class="chip">Zabbix</span><span class="chip">Grafana</span><span class="chip">Jira</span>
@@ -585,6 +709,7 @@
             </div>
           </article>
 
+          <!-- ===== РАБОТА №2 ===== -->
           <article class="exp reveal">
             <div class="exp-top">
               <div class="exp-role">Инженер группы мониторинга</div>
@@ -608,6 +733,7 @@
             </div>
           </article>
 
+          <!-- ===== РАБОТА №3 ===== -->
           <article class="exp reveal">
             <div class="exp-top">
               <div class="exp-role">Инженер отделения организации и внедрения ИТСО</div>
@@ -628,6 +754,9 @@
       </div>
     </section>
 
+    <!-- ---------- НАВЫКИ ----------
+         Каждая группа — отдельная <div class="skill-card">.
+         Навыки внутри — <span>…</span>. -->
     <section class="block" id="pm-skills">
       <div class="container">
         <div class="section-head">
@@ -638,7 +767,7 @@
 
         <div class="skills-grid">
           <div class="skill-card reveal">
-            <h3>Управление и координация</h3>
+            <h3>Управление и координация</h3>     <!-- МЕНЯТЬ: название группы -->
             <div class="skill-tags">
               <span>Project management</span>
               <span>ITIL / ITSM</span>
@@ -691,6 +820,7 @@
       </div>
     </section>
 
+    <!-- ---------- ПРОЕКТЫ ---------- -->
     <section class="block" id="pm-projects">
       <div class="container">
         <div class="section-head">
@@ -729,6 +859,8 @@
       </div>
     </section>
 
+    <!-- ---------- ОБРАЗОВАНИЕ ----------
+         Один диплом/курс — один <div class="edu reveal">. -->
     <section class="block" id="pm-education">
       <div class="container">
         <div class="section-head">
@@ -738,7 +870,7 @@
 
         <div class="edu-list">
           <div class="edu reveal">
-            <span class="edu-year">2019</span>
+            <span class="edu-year">2019</span>                                     <!-- год или метка -->
             <div class="edu-title">Бакалавр · Инфокоммуникационные технологии и системы связи</div>
             <div class="edu-org">Санкт-Петербургский государственный университет телекоммуникаций им. проф. М.А. Бонч-Бруевича · Защищённые сети и системы связи</div>
           </div>
@@ -776,6 +908,10 @@
       </div>
     </section>
 
+    <!-- ---------- КОНТАКТЫ ----------
+         Телефон убран. Осталось: email, Telegram, VK.
+         Чтобы добавить новый контакт — скопируйте блок <a class="contact-card">…</a>.
+         Атрибут href в каждом: mailto:, https://t.me/..., https://vk.com/... -->
     <section class="block" id="pm-contact">
       <div class="container">
         <div class="section-head">
@@ -784,6 +920,8 @@
           <p class="section-sub">Открыт к предложениям по управлению ИТ-проектами и продуктами. Отвечаю в течение дня.</p>
         </div>
         <div class="contact-wrap">
+
+          <!-- Email. МЕНЯТЬ: адрес в href и в тексте -->
           <a class="contact-card" href="mailto:o.i.o-1@mail.ru">
             <span class="contact-ico">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
@@ -793,6 +931,8 @@
               <span class="contact-value">o.i.o-1@mail.ru</span>
             </span>
           </a>
+
+          <!-- Telegram. МЕНЯТЬ: ник в href и в тексте -->
           <a class="contact-card" href="https://t.me/ilyaonishchenko" target="_blank" rel="noopener">
             <span class="contact-ico">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
@@ -802,6 +942,8 @@
               <span class="contact-value">@ilyaonishchenko</span>
             </span>
           </a>
+
+          <!-- VK. МЕНЯТЬ: адрес страницы в href и в тексте -->
           <a class="contact-card" href="https://vk.com/ilyaonishenko" target="_blank" rel="noopener">
             <span class="contact-ico">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h2c.5 0 .7.3.9.8.6 1.6 1.4 3 2.1 3 .4 0 .5-.3.5-1.2V9.7c0-.5-.2-.7-.7-.7V9c1.5-.1 2.2-.1 2.7 0 .4 0 .5.3.5.8v3c0 .4.1.6.3.6.4 0 1-1 1.6-2.3.5-.9.8-1.7.9-2h1.7c.4 0 .6.2.6.6 0 .6-.6 1.6-1.3 2.6-.3.4-.4.6-.4.8 0 .2.1.3.4.6.8.8 1.4 1.8 1.4 2.3 0 .4-.3.6-.8.6h-1.5c-.5 0-.8-.2-1.3-.7-.8-.8-1.2-1-1.4-1-.2 0-.3.2-.3.5v.5c0 .5-.2.7-.7.7-2.1 0-4.2-1.6-5.5-4.4C4.6 9.6 4.5 9.5 4 9.5V9z"/></svg>
@@ -811,6 +953,7 @@
               <span class="contact-value">vk.com/ilyaonishenko</span>
             </span>
           </a>
+
         </div>
       </div>
     </section>
@@ -818,9 +961,15 @@
   </div><!-- /resume-pm -->
 
 
-  <!-- ============ РЕЗЮМЕ 2: РУКОВОДИТЕЛЬ ТЕХПОДДЕРЖКИ ============ -->
+  <!-- ============================================================
+       РЕЗЮМЕ №2: РУКОВОДИТЕЛЬ ТЕХПОДДЕРЖКИ
+       Атрибут hidden — этот блок скрыт по умолчанию.
+       Показывается при клике на таб «Руководитель поддержки».
+       Структура полностью совпадает с первым резюме.
+       ============================================================ -->
   <div class="resume" id="resume-support" data-resume="support" hidden>
 
+    <!-- ---------- HERO ---------- -->
     <section class="hero container">
       <div class="hero-grid">
         <div>
@@ -855,6 +1004,7 @@
           </div>
         </div>
 
+        <!-- МЕНЯТЬ: карточки в hero второго резюме -->
         <div class="highlights">
           <div class="hl"><div class="hl-top">7+ лет</div><div class="hl-bottom">в ИТ и поддержке</div></div>
           <div class="hl"><div class="hl-top">3 года</div><div class="hl-bottom">управленческой практики</div></div>
@@ -863,6 +1013,7 @@
       </div>
     </section>
 
+    <!-- ---------- ОБО МНЕ ---------- -->
     <section class="block" id="support-about">
       <div class="container">
         <div class="section-head">
@@ -899,6 +1050,7 @@
       </div>
     </section>
 
+    <!-- ---------- ОПЫТ РАБОТЫ ---------- -->
     <section class="block" id="support-experience">
       <div class="container">
         <div class="section-head">
@@ -976,6 +1128,7 @@
       </div>
     </section>
 
+    <!-- ---------- НАВЫКИ ---------- -->
     <section class="block" id="support-skills">
       <div class="container">
         <div class="section-head">
@@ -1044,6 +1197,7 @@
       </div>
     </section>
 
+    <!-- ---------- ПРОЕКТЫ ---------- -->
     <section class="block" id="support-projects">
       <div class="container">
         <div class="section-head">
@@ -1085,6 +1239,7 @@
       </div>
     </section>
 
+    <!-- ---------- ОБРАЗОВАНИЕ ---------- -->
     <section class="block" id="support-education">
       <div class="container">
         <div class="section-head">
@@ -1132,6 +1287,7 @@
       </div>
     </section>
 
+    <!-- ---------- КОНТАКТЫ ---------- -->
     <section class="block" id="support-contact">
       <div class="container">
         <div class="section-head">
@@ -1175,15 +1331,32 @@
 
 </main>
 
+<!-- ============================================================
+     ФУТЕР
+     ============================================================ -->
 <footer class="container">
   <div>© <span id="year"></span> Илья Онищенко</div>
   <div>Резюме обновлено: <span id="updated"></span></div>
 </footer>
 
+<!-- ============================================================
+     СКРИПТЫ
+     ============================================================
+     Обычно здесь менять ничего не нужно.
+     Скрипт отвечает за:
+       1. Год и дату в футере.
+       2. Переключение светлой/тёмной темы.
+       3. Переключение между двумя резюме.
+       4. Мобильное меню.
+       5. Подсветку активной ссылки в навигации.
+       6. Анимацию появления блоков.
+     ============================================================ -->
 <script>
+  /* ---------- 1. Год и дата в футере ---------- */
   document.getElementById('year').textContent = new Date().getFullYear();
   document.getElementById('updated').textContent = new Date().toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
 
+  /* ---------- 2. Переключение темы ---------- */
   const root = document.documentElement;
   const themeToggle = document.getElementById('themeToggle');
 
@@ -1194,6 +1367,7 @@
     try { localStorage.setItem('theme', next); } catch(e) {}
   });
 
+  /* ---------- 3. Переключение между резюме ---------- */
   const tabs = document.querySelectorAll('.segmented [data-tab]');
   const resumes = document.querySelectorAll('.resume[data-resume]');
   const navLinks = document.querySelectorAll('.nav a[data-target], .mobile-nav a[data-target]');
@@ -1203,20 +1377,24 @@
   function showResume(name, scrollTop = true) {
     if (!['pm', 'support'].includes(name)) name = 'pm';
 
+    // Скрываем все, кроме выбранного
     resumes.forEach(r => {
       r.hidden = r.dataset.resume !== name;
     });
 
+    // Подсвечиваем активный таб
     tabs.forEach(t => {
       const active = t.dataset.tab === name;
       t.classList.toggle('active', active);
       t.setAttribute('aria-selected', String(active));
     });
 
+    // Обновляем href ссылок навигации — меняем префикс pm-/support-
     navLinks.forEach(l => {
       l.href = `#${name}-${l.dataset.target}`;
     });
 
+    // Обновляем адресную строку (без прыжка по странице)
     if (history.replaceState) {
       history.replaceState(null, '', `#${name}`);
     } else {
@@ -1237,6 +1415,7 @@
     });
   });
 
+  /* ---------- 4. Мобильное меню ---------- */
   function openMobileNav() {
     mobileNav.classList.add('open');
     burger.setAttribute('aria-expanded', 'true');
@@ -1254,6 +1433,7 @@
     a.addEventListener('click', closeMobileNav);
   });
 
+  /* ---------- 5. Подсветка активной ссылки ---------- */
   function updateActiveNav() {
     const current = document.querySelector('.resume:not([hidden])');
     if (!current) return;
@@ -1269,6 +1449,7 @@
   }
   window.addEventListener('scroll', updateActiveNav, { passive: true });
 
+  /* ---------- 6. Анимация появления ---------- */
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -1290,12 +1471,14 @@
     });
   }
 
+  /* ---------- Инициализация ---------- */
   const initial = location.hash === '#support' ? 'support' : 'pm';
   showResume(initial, false);
   observeReveals();
   updateActiveNav();
   revealVisible();
 
+  // Если пользователь вручную меняет hash в адресной строке — переключаем резюме
   window.addEventListener('hashchange', () => {
     const h = location.hash.replace('#', '');
     if (h.startsWith('support')) showResume('support', false);
