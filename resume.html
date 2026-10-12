@@ -84,7 +84,6 @@
 
   .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
-  /* Ссылка в тексте — пунктирная, ненавязчивая */
   .inline-link {
     color: inherit;
     text-decoration: none;
@@ -423,11 +422,11 @@
     border-color: var(--border-strong);
   }
 
-  /* === КНОПКА «СКОПИРОВАТЬ EMAIL» === */
-  .contact-card-email {
+  /* === КНОПКИ «СКОПИРОВАТЬ» (EMAIL, TELEGRAM) === */
+  .contact-card-copy {
     cursor: default;
   }
-  .contact-card-email:hover {
+  .contact-card-copy:hover {
     transform: none;
     border-color: var(--accent);
   }
@@ -560,9 +559,6 @@
     a { color: #111; text-decoration: none; }
     .inline-link { border-bottom: 0; }
     footer { display: none; }
-
-    /* Раскомментируй, если хочешь печатать ОБА резюме одним PDF:
-       .resume[hidden] { display: block !important; } */
   }
 </style>
 </head>
@@ -1009,7 +1005,7 @@
       </div>
       <div class="contact-wrap">
 
-        <div class="contact-card contact-card-email">
+        <div class="contact-card contact-card-copy">
           <span class="contact-ico">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
           </span>
@@ -1025,15 +1021,21 @@
           </button>
         </div>
 
-        <a class="contact-card" href="https://t.me/ilyaonishchenko" target="_blank" rel="noopener">
+        <div class="contact-card contact-card-copy">
           <span class="contact-ico">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
           </span>
-          <span>
+          <a href="https://t.me/ilyaonishchenko" target="_blank" rel="noopener" class="contact-email-link">
             <span class="contact-label">Telegram</span>
             <span class="contact-value">@ilyaonishchenko</span>
-          </span>
-        </a>
+          </a>
+          <button type="button" class="copy-btn" data-copy="@ilyaonishchenko" aria-label="Скопировать ник" title="Скопировать ник">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+          </button>
+        </div>
 
         <a class="contact-card" href="https://max.ru/u/f9LHodD0cOILKTJcUqqZ446Ze3kP_NZiMzLVxfxic3kuwb-QMLHAIKSR4yBs" target="_blank" rel="noopener">
           <span class="contact-ico">
@@ -1466,7 +1468,7 @@
       </div>
       <div class="contact-wrap">
 
-        <div class="contact-card contact-card-email">
+        <div class="contact-card contact-card-copy">
           <span class="contact-ico">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
           </span>
@@ -1482,15 +1484,21 @@
           </button>
         </div>
 
-        <a class="contact-card" href="https://t.me/ilyaonishchenko" target="_blank" rel="noopener">
+        <div class="contact-card contact-card-copy">
           <span class="contact-ico">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
           </span>
-          <span>
+          <a href="https://t.me/ilyaonishchenko" target="_blank" rel="noopener" class="contact-email-link">
             <span class="contact-label">Telegram</span>
             <span class="contact-value">@ilyaonishchenko</span>
-          </span>
-        </a>
+          </a>
+          <button type="button" class="copy-btn" data-copy="@ilyaonishchenko" aria-label="Скопировать ник" title="Скопировать ник">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+          </button>
+        </div>
 
         <a class="contact-card" href="https://max.ru/u/f9LHodD0cOILKTJcUqqZ446Ze3kP_NZiMzLVxfxic3kuwb-QMLHAIKSR4yBs" target="_blank" rel="noopener">
           <span class="contact-ico">
@@ -1571,7 +1579,7 @@
     });
   }
 
-  // Копирование email в буфер
+  // Копирование в буфер (email, ник telegram)
   function fallbackCopy(text, callback) {
     var ta = document.createElement('textarea');
     ta.value = text;
@@ -1586,7 +1594,7 @@
     document.body.removeChild(ta);
   }
 
-  function copyEmail(btn) {
+  function copyText(btn) {
     var text = btn.getAttribute('data-copy');
     if (!text) return;
 
@@ -1613,7 +1621,7 @@
     btn.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
-      copyEmail(btn);
+      copyText(btn);
     });
   });
 
