@@ -810,7 +810,6 @@
       <div class="section-head">
         <div class="section-kicker">Навыки</div>
         <h2 class="section-title">Что я умею</h2>
-        <p class="section-sub">Разбито на блоки: управление, инструменты, техника, коммуникации.</p>
       </div>
 
       <div class="skills-grid">
@@ -965,7 +964,7 @@
           <div class="edu-title">Управление ИТ-проектами на базе ПП ПАО «Ростелеком»</div>
           <div class="edu-org">
             <a href="https://edu-rt.ru/" target="_blank" rel="noopener" class="inline-link">Ростелеком ИТ Школа</a>
-            · Менеджер ИТ-проектов
+            · Менеджер проекта
           </div>
         </div>
 
@@ -989,7 +988,7 @@
 
         <div class="edu reveal">
           <span class="edu-year">2026</span>
-          <div class="edu-title">Центр оценки компетенций · Менеджер ИТ-проектов</div>
+          <div class="edu-title">Центр оценки компетенций · Менеджер ИТ-продукта</div>
           <div class="edu-org">Департамент предпринимательства и инновационного развития города Москвы</div>
         </div>
       </div>
@@ -1001,7 +1000,7 @@
       <div class="section-head">
         <div class="section-kicker">Контакты</div>
         <h2 class="section-title">Давайте обсудим задачи</h2>
-        <p class="section-sub">Открыт к предложениям на роль: Project manager / Менеджер проектов / Администратор проектов / Руководитель проектов. Отвечаю в течение дня.</p>
+        <p class="section-sub">Открыт к предложениям по управлению ИТ-проектами и продуктами, а также роли Менеджера/Администратора проектов. Отвечаю в течение дня.</p>
       </div>
       <div class="contact-wrap">
 
@@ -1073,6 +1072,19 @@
           <span>
             <span class="contact-label">VK</span>
             <span class="contact-value">vk.com/ilyaonishenko</span>
+          </span>
+        </a>
+
+        <a class="contact-card" href="https://hh.ru/resume/3307cf82ff111928bb0039ed1f635868694436" target="_blank" rel="noopener">
+          <span class="contact-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </span>
+          <span>
+            <span class="contact-label">hh.ru</span>
+            <span class="contact-value">Резюме на hh.ru</span>
           </span>
         </a>
 
@@ -1267,7 +1279,6 @@
       <div class="section-head">
         <div class="section-kicker">Навыки</div>
         <h2 class="section-title">Что я умею</h2>
-        <p class="section-sub">Четыре блока: команда, процессы, мониторинг, техника.</p>
       </div>
 
       <div class="skills-grid">
@@ -1464,7 +1475,7 @@
       <div class="section-head">
         <div class="section-kicker">Контакты</div>
         <h2 class="section-title">Давайте обсудим задачи</h2>
-        <p class="section-sub">Открыт к предложениям на роль: Руководитель поддержки / Team Lead / Service Desk Manager / Service Manager. Отвечаю в течение дня.</p>
+        <p class="section-sub">Открыт к предложениям на роль Руководителя поддержки / Team Lead / Service Desk Manager / Service Manager. Отвечаю в течение дня.</p>
       </div>
       <div class="contact-wrap">
 
@@ -1539,6 +1550,19 @@
           </span>
         </a>
 
+        <a class="contact-card" href="https://hh.ru/resume/3f0d44bdff0b6c799b0039ed1f33335656616d" target="_blank" rel="noopener">
+          <span class="contact-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </span>
+          <span>
+            <span class="contact-label">hh.ru</span>
+            <span class="contact-value">Резюме на hh.ru</span>
+          </span>
+        </a>
+
       </div>
     </div>
   </section>
@@ -1561,13 +1585,11 @@
 </button>
 
 <script>
-  // Год и дата
   var yearEl = document.getElementById('year');
   var updEl = document.getElementById('updated');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
   if (updEl) updEl.textContent = new Date().toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
 
-  // Тема
   var rootEl = document.documentElement;
   var themeBtn = document.getElementById('themeToggle');
   if (themeBtn) {
@@ -1579,7 +1601,6 @@
     });
   }
 
-  // Копирование в буфер (email, ник telegram)
   function fallbackCopy(text, callback) {
     var ta = document.createElement('textarea');
     ta.value = text;
@@ -1625,7 +1646,6 @@
     });
   });
 
-  // Кнопка «Наверх»
   var toTopBtn = document.getElementById('toTop');
   if (toTopBtn) {
     toTopBtn.addEventListener('click', function() {
@@ -1636,7 +1656,6 @@
     }, { passive: true });
   }
 
-  // Переключение резюме
   var tabs = document.querySelectorAll('.segmented [data-tab]');
   var resumes = document.querySelectorAll('.resume[data-resume]');
   var navLinks = document.querySelectorAll('.nav a[data-target], .mobile-nav a[data-target]');
