@@ -6,6 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Илья Онищенко — Менеджер проектов / Руководитель поддержки</title>
 <meta name="description" content="Илья Онищенко — 7+ лет в ИТ. Совмещаю техническую работу с управленческой.">
+<meta name="author" content="Илья Онищенко">
+<meta name="theme-color" content="#2f6df6">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -401,6 +403,77 @@
     display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
   }
 
+  /* === ПОДСВЕТКА РАЗДЕЛА ПРИ КЛИКЕ В НАВИГАЦИИ === */
+  section.block:target {
+    animation: sectionHighlight 1.6s ease;
+  }
+  @keyframes sectionHighlight {
+    0%   { background: var(--accent-soft); }
+    100% { background: transparent; }
+  }
+
+  /* === АНИМАЦИЯ КАРТОЧЕК ОПЫТА И ОБРАЗОВАНИЯ ПРИ НАВЕДЕНИИ === */
+  .resume .exp,
+  .resume .edu {
+    transition: transform .18s ease, border-color .18s ease, opacity .5s ease;
+  }
+  .resume .exp:hover,
+  .resume .edu:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+  }
+
+  /* === КНОПКА «СКОПИРОВАТЬ EMAIL» === */
+  .contact-card-email {
+    cursor: default;
+  }
+  .contact-card-email:hover {
+    transform: none;
+    border-color: var(--accent);
+  }
+  .contact-email-link {
+    flex: 1;
+    color: inherit;
+    text-decoration: none;
+    min-width: 0;
+  }
+  .contact-email-link:hover {
+    text-decoration: none;
+  }
+  .contact-email-link:hover .contact-value {
+    color: var(--accent);
+  }
+  .copy-btn {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-soft);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: background .15s ease, color .15s ease, border-color .15s ease, transform .1s ease;
+  }
+  .copy-btn:hover {
+    background: var(--bg-soft);
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .copy-btn:active {
+    transform: scale(.94);
+  }
+  .copy-btn.copied {
+    background: var(--accent);
+    color: var(--accent-contrast);
+    border-color: var(--accent);
+  }
+  .copy-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+
   /* === КНОПКА «НАВЕРХ» === */
   .to-top {
     position: fixed;
@@ -446,15 +519,14 @@
 
   /* === ПЕЧАТЬ (Ctrl+P → PDF) === */
   @media print {
-    /* Скрываем интерактивные элементы */
     .header,
     .mobile-nav,
     .segmented,
     .cta-row,
     .header-controls,
-    .to-top { display: none !important; }
+    .to-top,
+    .copy-btn { display: none !important; }
 
-    /* ПРИНУДИТЕЛЬНО показываем все анимированные блоки */
     .reveal,
     .reveal.visible {
       opacity: 1 !important;
@@ -937,15 +1009,21 @@
       </div>
       <div class="contact-wrap">
 
-        <a class="contact-card" href="mailto:o.i.o-1@mail.ru">
+        <div class="contact-card contact-card-email">
           <span class="contact-ico">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
           </span>
-          <span>
+          <a href="mailto:o.i.o-1@mail.ru" class="contact-email-link">
             <span class="contact-label">Email</span>
             <span class="contact-value">o.i.o-1@mail.ru</span>
-          </span>
-        </a>
+          </a>
+          <button type="button" class="copy-btn" data-copy="o.i.o-1@mail.ru" aria-label="Скопировать email" title="Скопировать email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+          </button>
+        </div>
 
         <a class="contact-card" href="https://t.me/ilyaonishchenko" target="_blank" rel="noopener">
           <span class="contact-ico">
@@ -1388,15 +1466,21 @@
       </div>
       <div class="contact-wrap">
 
-        <a class="contact-card" href="mailto:o.i.o-1@mail.ru">
+        <div class="contact-card contact-card-email">
           <span class="contact-ico">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
           </span>
-          <span>
+          <a href="mailto:o.i.o-1@mail.ru" class="contact-email-link">
             <span class="contact-label">Email</span>
             <span class="contact-value">o.i.o-1@mail.ru</span>
-          </span>
-        </a>
+          </a>
+          <button type="button" class="copy-btn" data-copy="o.i.o-1@mail.ru" aria-label="Скопировать email" title="Скопировать email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2"/>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+            </svg>
+          </button>
+        </div>
 
         <a class="contact-card" href="https://t.me/ilyaonishchenko" target="_blank" rel="noopener">
           <span class="contact-ico">
@@ -1486,6 +1570,52 @@
       try { localStorage.setItem('theme', next); } catch(e) {}
     });
   }
+
+  // Копирование email в буфер
+  function fallbackCopy(text, callback) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try {
+      document.execCommand('copy');
+      if (callback) callback();
+    } catch(e) {}
+    document.body.removeChild(ta);
+  }
+
+  function copyEmail(btn) {
+    var text = btn.getAttribute('data-copy');
+    if (!text) return;
+
+    var onDone = function() {
+      var original = btn.innerHTML;
+      btn.classList.add('copied');
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+      setTimeout(function() {
+        btn.classList.remove('copied');
+        btn.innerHTML = original;
+      }, 1500);
+    };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(onDone).catch(function() {
+        fallbackCopy(text, onDone);
+      });
+    } else {
+      fallbackCopy(text, onDone);
+    }
+  }
+
+  document.querySelectorAll('.copy-btn').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      copyEmail(btn);
+    });
+  });
 
   // Кнопка «Наверх»
   var toTopBtn = document.getElementById('toTop');
