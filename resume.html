@@ -443,78 +443,52 @@
 
   /* === ПЕЧАТЬ (Ctrl+P → PDF) === */
   @media print {
-    .header, .mobile-nav, .segmented, .cta-row, .header-controls, .to-top { display: none !important; }
-    body { font-size: 11.5px; background: #fff; color: #111; }
-    section.block { padding: 14px 0; border-top: 1px solid #ddd; }
-    .exp, .skill-card, .proj, .case-card, .edu, .hl { box-shadow: none; border-color: #ddd; }
+    /* Скрываем интерактивные элементы */
+    .header,
+    .mobile-nav,
+    .segmented,
+    .cta-row,
+    .header-controls,
+    .to-top { display: none !important; }
+
+    /* ПРИНУДИТЕЛЬНО показываем все анимированные блоки */
+    .reveal,
+    .reveal.visible {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+
+    body {
+      font-size: 11.5px;
+      background: #fff;
+      color: #111;
+    }
+
+    section.block {
+      padding: 14px 0;
+      border-top: 1px solid #ddd;
+      break-inside: avoid;
+    }
+
+    .exp,
+    .skill-card,
+    .proj,
+    .case-card,
+    .edu,
+    .hl {
+      box-shadow: none;
+      border-color: #ddd;
+      break-inside: avoid;
+    }
+
     a { color: #111; text-decoration: none; }
     .inline-link { border-bottom: 0; }
     footer { display: none; }
+
+    /* Раскрываем оба резюме при печати, если хочешь печатать только активное — оставь как есть */
+    /* .resume[hidden] { display: block !important; } */
   }
-</style>
-</head>
-<body>
-
-<header class="header">
-  <div class="container header-inner">
-    <a href="#" class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
-      <span class="logo-mark">ИО</span>
-      <span class="logo-text">Илья Онищенко</span>
-    </a>
-
-    <div class="segmented" role="tablist" aria-label="Переключение резюме">
-      <button type="button" data-tab="pm" role="tab">Менеджер проектов</button>
-      <button type="button" data-tab="support" role="tab">Руководитель поддержки</button>
-    </div>
-
-    <nav class="nav" aria-label="Основная навигация">
-      <a href="#pm-about" data-target="about">Обо мне</a>
-      <a href="#pm-experience" data-target="experience">Опыт</a>
-      <a href="#pm-skills" data-target="skills">Навыки</a>
-      <a href="#pm-projects" data-target="projects">Задачи</a>
-      <a href="#pm-education" data-target="education">Образование</a>
-      <a href="#pm-contact" data-target="contact">Контакты</a>
-    </nav>
-
-    <div class="header-controls">
-      <button class="icon-btn" id="themeToggle" aria-label="Переключить тему" title="Светлая / тёмная тема">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="4"/>
-          <line x1="12" y1="2" x2="12" y2="4"/>
-          <line x1="12" y1="20" x2="12" y2="22"/>
-          <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/>
-          <line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/>
-          <line x1="2" y1="12" x2="4" y2="12"/>
-          <line x1="20" y1="12" x2="22" y2="12"/>
-          <line x1="4.93" y1="19.07" x2="6.34" y2="17.66"/>
-          <line x1="17.66" y1="6.34" x2="19.07" y2="4.93"/>
-        </svg>
-      </button>
-
-      <button class="icon-btn burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileNav">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
-</header>
-
-<div class="mobile-nav" id="mobileNav">
-  <div class="segmented" role="tablist" aria-label="Переключение резюме">
-    <button type="button" data-tab="pm" role="tab">Менеджер проектов</button>
-    <button type="button" data-tab="support" role="tab">Руководитель поддержки</button>
-  </div>
-  <a href="#pm-about" data-target="about">Обо мне</a>
-  <a href="#pm-experience" data-target="experience">Опыт</a>
-  <a href="#pm-skills" data-target="skills">Навыки</a>
-  <a href="#pm-projects" data-target="projects">Задачи</a>
-  <a href="#pm-education" data-target="education">Образование</a>
-  <a href="#pm-contact" data-target="contact">Контакты</a>
-</div>
-
-<main>
 
 <!-- ============ РЕЗЮМЕ №1: МЕНЕДЖЕР ПРОЕКТОВ ============ -->
 <div class="resume" id="resume-pm" data-resume="pm">
@@ -855,7 +829,7 @@
           <span class="edu-year">2026</span>
           <div class="edu-title">Управление ИТ-проектами на базе ПП ПАО «Ростелеком»</div>
           <div class="edu-org">
-            <a href="https://it.rt.ru/" target="_blank" rel="noopener" class="inline-link">Ростелеком ИТ Школа</a>
+            <a href="https://edu-rt.ru/" target="_blank" rel="noopener" class="inline-link">Ростелеком ИТ Школа</a>
             · Менеджер проекта
           </div>
         </div>
@@ -1312,7 +1286,7 @@
           <span class="edu-year">2026</span>
           <div class="edu-title">Управление ИТ-проектами на базе ПП ПАО «Ростелеком»</div>
           <div class="edu-org">
-            <a href="https://it.rt.ru/" target="_blank" rel="noopener" class="inline-link">Ростелеком ИТ Школа</a>
+            <a href="https://edu-rt.ru/" target="_blank" rel="noopener" class="inline-link">Ростелеком ИТ Школа</a>
             · Менеджер ИТ-проектов
           </div>
         </div>
