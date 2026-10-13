@@ -96,7 +96,6 @@
     text-decoration: none;
   }
 
-  /* === ШАПКА === */
   .header {
     position: sticky; top: 0; z-index: 50;
     background: var(--bg);
@@ -180,7 +179,6 @@
 
   .burger { display: none; }
 
-  /* Планшет и десктоп-мобильный: скрываем длинную навигацию, показываем бургер */
   @media (max-width: 1080px) {
     .nav { display: none; }
     .burger { display: inline-flex; }
@@ -205,7 +203,6 @@
     }
   }
 
-  /* === МОБИЛЬНОЕ МЕНЮ (только навигация по разделам) === */
   .mobile-nav {
     display: none;
     position: fixed; top: var(--header-h); left: 0; right: 0; bottom: 0;
@@ -222,7 +219,6 @@
   }
   .mobile-nav a:last-of-type { border-bottom: 0; }
 
-  /* === HERO === */
   .hero { padding: 64px 0 48px; }
   .hero-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
   .hero h1 {
@@ -299,7 +295,6 @@
   }
   .btn-ghost:hover { background: var(--bg-soft); border-color: var(--border-strong); }
 
-  /* === СЕКЦИИ === */
   section.block { padding: 60px 0; border-top: 1px solid var(--border); }
   .section-head { margin-bottom: 28px; }
   .section-kicker {
@@ -323,7 +318,6 @@
   .hl .hl-top { font-size: 20px; font-weight: 800; color: var(--accent); }
   .hl .hl-bottom { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
 
-  /* === ОПЫТ === */
   .exp-list { display: flex; flex-direction: column; gap: 20px; }
   .exp {
     background: var(--bg-card); border: 1px solid var(--border);
@@ -359,7 +353,6 @@
     border: 1px solid var(--border);
   }
 
-  /* === НАВЫКИ === */
   .skills-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 16px;
@@ -383,7 +376,6 @@
     padding: 5px 10px; border-radius: 8px;
   }
 
-  /* === ЗАДАЧИ / КЕЙСЫ === */
   .proj-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 16px;
@@ -415,7 +407,6 @@
   .case-card p:last-child { margin-bottom: 0; }
   .case-card b { color: var(--text); }
 
-  /* === ОБРАЗОВАНИЕ === */
   .edu-list { display: flex; flex-direction: column; gap: 12px; }
   .edu {
     background: var(--bg-card); border: 1px solid var(--border);
@@ -429,7 +420,6 @@
   .edu-title { font-weight: 700; font-size: 15px; margin-bottom: 2px; }
   .edu-org { color: var(--text-muted); font-size: 13.5px; }
 
-  /* === КОНТАКТЫ === */
   .contact-wrap {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 12px;
@@ -451,14 +441,12 @@
   .contact-label { display: block; font-size: 12px; color: var(--text-soft); }
   .contact-value { display: block; font-size: 14px; font-weight: 600; color: var(--text); word-break: break-word; }
 
-  /* === ФУТЕР === */
   footer {
     padding: 28px 0 44px; border-top: 1px solid var(--border);
     color: var(--text-soft); font-size: 12.5px;
     display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
   }
 
-  /* === ПОДСВЕТКА РАЗДЕЛА ПРИ КЛИКЕ В НАВИГАЦИИ === */
   section.block:target {
     animation: sectionHighlight 1.6s ease;
   }
@@ -467,7 +455,6 @@
     100% { background: transparent; }
   }
 
-  /* === АНИМАЦИЯ КАРТОЧЕК ОПЫТА И ОБРАЗОВАНИЯ ПРИ НАВЕДЕНИИ === */
   .resume .exp,
   .resume .edu {
     transition: transform .18s ease, border-color .18s ease, opacity .5s ease;
@@ -478,7 +465,6 @@
     border-color: var(--border-strong);
   }
 
-  /* === КНОПКИ «СКОПИРОВАТЬ» (EMAIL, TELEGRAM) === */
   .contact-card-copy {
     cursor: default;
   }
@@ -529,7 +515,6 @@
     height: 15px;
   }
 
-  /* === КНОПКА «НАВЕРХ» === */
   .to-top {
     position: fixed;
     bottom: 24px;
@@ -572,7 +557,6 @@
     .reveal { opacity: 1; transform: none; transition: none; }
   }
 
-  /* === ПЕЧАТЬ (Ctrl+P → PDF) === */
   @media print {
     .header,
     .mobile-nav,
@@ -879,24 +863,38 @@
           <h3>Управление и координация</h3>
           <div class="skill-tags">
             <span>Project management</span>
-            <span>ITIL / ITSM</span>
-            <span>Agile / Kanban / Scrum</span>
+            <span>Agile/Scrum</span>
             <span>Управление рисками</span>
             <span>Управление стейкхолдерами</span>
             <span>Фасилитация встреч</span>
             <span>Приоритизация бэклога</span>
+            <span>Онбординг</span>
+          </div>
+        </div>
+
+        <div class="skill-card reveal">
+          <h3>Процессы</h3>
+          <div class="skill-tags">
+            <span>Help Desk / Service Desk</span>
+            <span>ITIL / ITSM</span>
+            <span>Настройка SLA</span>
+            <span>Маршрутизация тикетов</span>
+            <span>Управление инцидентами</span>
+            <span>Post-mortem анализ</span>
             <span>Составление отчётности</span>
+            <span>Разработка инструкций</span>
           </div>
         </div>
 
         <div class="skill-card reveal">
           <h3>Инструменты</h3>
           <div class="skill-tags">
-            <span>Jira</span>
-            <span>Confluence</span>
+            <span>Jira / Confluence</span>
+            <span>BPM-система</span>
             <span>Grafana</span>
             <span>Zabbix</span>
-            <span>BPM-система</span>
+            <span>CheckMK</span>
+            <span>MS Excel</span>
             <span>Git</span>
           </div>
         </div>
@@ -910,19 +908,8 @@
             <span>Docker</span>
             <span>Kubernetes</span>
             <span>Bash</span>
-            <span>Python</span>
             <span>Java</span>
             <span>TCP/IP</span>
-          </div>
-        </div>
-
-        <div class="skill-card reveal">
-          <h3>Коммуникации и обучение</h3>
-          <div class="skill-tags">
-            <span>Онбординг</span>
-            <span>Разработка инструкций</span>
-            <span>Проведение обучения</span>
-            <span>Деловая коммуникация</span>
           </div>
         </div>
       </div>
@@ -934,25 +921,34 @@
       <div class="section-head">
         <div class="section-kicker">Задачи</div>
         <h2 class="section-title">Что я беру на себя</h2>
-        <p class="section-sub">Типовые задачи, в которых у меня есть практика и результат.</p>
+        <p class="section-sub">Задачи, которые я уже решал сам — знаю, как это работает на практике.</p>
       </div>
 
       <div class="proj-grid">
         <article class="proj reveal">
-          <h3>Настроить мониторинг с нуля</h3>
+          <h3>Вести задачи от старта до сдачи</h3>
           <ul>
-            <li>Подобрать инструменты под инфраструктуру</li>
-            <li>Прописать триггеры доступности и производительности</li>
-            <li>Обучить команду работать с алертами</li>
+            <li>Планирование, декомпозиция, контроль сроков</li>
+            <li>Маршрутизация задач и очередь в Jira</li>
+            <li>Координация разработки, аналитики и DevOps</li>
           </ul>
         </article>
 
         <article class="proj reveal">
           <h3>Описать регламенты и завести базу знаний</h3>
           <ul>
-            <li>Собрать структуру типовых инцидентов и процессов</li>
+            <li>Собрать структуру типовых процессов</li>
             <li>Описать сценарии разбора и эскалации</li>
             <li>Встроить ведение базы в ежедневную работу команды</li>
+          </ul>
+        </article>
+
+        <article class="proj reveal">
+          <h3>Выстроить процессы</h3>
+          <ul>
+            <li>Настроить SLA</li>
+            <li>Выстроить маршрутизацию обращений</li>
+            <li>Прописать эскалацию между командами</li>
           </ul>
         </article>
 
@@ -966,11 +962,11 @@
         </article>
 
         <article class="proj reveal">
-          <h3>Провести онбординг инженера</h3>
+          <h3>Развить команду</h3>
           <ul>
             <li>Познакомить с инфраструктурой и процессами</li>
             <li>Передать базу знаний и регламенты</li>
-            <li>Довести до самостоятельных дежурств</li>
+            <li>Довести до самостоятельной работы</li>
           </ul>
         </article>
       </div>
@@ -1331,12 +1327,12 @@
             · Череповец
           </div>
           <ul>
-            <li>Руководил дежурной группой быстрого реагирования: постановка задач, ведение отчётности</li>
+            <li>Руководил дежурной группой быстрого реагирования: ставил задачи, распределял смены, вёл отчётность</li>
             <li>Проводил собеседования кандидатов и обучение сотрудников работе с оборудованием</li>
             <li>Разрабатывал инструкции по пользованию охранно-пожарной сигнализацией</li>
             <li>Настраивал и поддерживал работоспособность серверов мониторинга охранно-пожарной сигнализации и IP-телефонии</li>
             <li>Вводил в эксплуатацию технические средства охраны, контролировал регламентные работы</li>
-            <li>Работал с ГОСТ-документами: проверка на соответствие, заполнение согласно требованиям законодательства</li>
+            <li>Работал с ГОСТ-документами: проверял на соответствие, заполнял согласно требованиям законодательства</li>
             <li>Составлял акты и отчёты о проверке систем</li>
           </ul>
         </article>
@@ -1354,7 +1350,7 @@
 
       <div class="skills-grid">
         <div class="skill-card reveal">
-          <h3>Управление командой</h3>
+          <h3>Управление и координация</h3>
           <div class="skill-tags">
             <span>Найм и собеседования</span>
             <span>Онбординг</span>
@@ -1363,11 +1359,14 @@
             <span>Распределение нагрузки on-call</span>
             <span>Составление графиков</span>
             <span>Развитие персонала</span>
+            <span>Лидерство</span>
+            <span>Управление стейкхолдерами</span>
+            <span>Приоритизация задач</span>
           </div>
         </div>
 
         <div class="skill-card reveal">
-          <h3>Процессы поддержки</h3>
+          <h3>Процессы</h3>
           <div class="skill-tags">
             <span>Help Desk / Service Desk</span>
             <span>ITIL / ITSM</span>
@@ -1381,31 +1380,29 @@
         </div>
 
         <div class="skill-card reveal">
-          <h3>Мониторинг и техника</h3>
+          <h3>Инструменты</h3>
           <div class="skill-tags">
-            <span>Zabbix</span>
+            <span>Jira / Confluence</span>
+            <span>BPM-система</span>
             <span>Grafana</span>
+            <span>Zabbix</span>
             <span>CheckMK</span>
-            <span>Linux (Ubuntu / CentOS)</span>
-            <span>Windows Server</span>
-            <span>Active Directory</span>
-            <span>TCP/IP · DHCP · DNS</span>
-            <span>Docker</span>
-            <span>Kubernetes</span>
+            <span>MS Excel</span>
             <span>Git</span>
           </div>
         </div>
 
         <div class="skill-card reveal">
-          <h3>Инструменты и софт-скиллы</h3>
+          <h3>Технические навыки</h3>
           <div class="skill-tags">
-            <span>Jira / Confluence</span>
-            <span>BPM-система</span>
-            <span>MS Excel</span>
-            <span>Лидерство</span>
-            <span>Системное мышление</span>
-            <span>Деловая коммуникация</span>
-            <span>Работа в стрессе</span>
+            <span>Linux</span>
+            <span>Windows Server</span>
+            <span>Active Directory</span>
+            <span>Docker</span>
+            <span>Kubernetes</span>
+            <span>Bash</span>
+            <span>Java</span>
+            <span>TCP/IP</span>
           </div>
         </div>
       </div>
@@ -1417,7 +1414,7 @@
       <div class="section-head">
         <div class="section-kicker">Задачи</div>
         <h2 class="section-title">Что я беру на себя</h2>
-        <p class="section-sub">Задачи по команде, процессам и технике — с практикой в каждой.</p>
+        <p class="section-sub">Задачи, которые я уже решал сам — знаю, как это работает на практике.</p>
       </div>
 
       <div class="proj-grid">
@@ -1431,7 +1428,7 @@
         </article>
 
         <article class="proj reveal">
-          <h3>Развить команду поддержки</h3>
+          <h3>Развить команду</h3>
           <ul>
             <li>Провести собеседования и онбординг</li>
             <li>Настроить распределение нагрузки on-call</li>
@@ -1445,6 +1442,15 @@
             <li>Настроить Zabbix, Grafana и дашборды</li>
             <li>Прописать триггеры и алерты</li>
             <li>Перейти от реакции к предупреждению инцидентов</li>
+          </ul>
+        </article>
+
+        <article class="proj reveal">
+          <h3>Описать регламенты и завести базу знаний</h3>
+          <ul>
+            <li>Собрать структуру типовых инцидентов и обращений</li>
+            <li>Описать сценарии разбора и эскалации между линиями</li>
+            <li>Встроить ведение базы в ежедневную работу команды</li>
           </ul>
         </article>
 
@@ -1647,7 +1653,6 @@
   <div>Резюме обновлено: <span id="updated"></span></div>
 </footer>
 
-<!-- Кнопка «Наверх» -->
 <button class="to-top" id="toTop" aria-label="Наверх">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
     <line x1="12" y1="19" x2="12" y2="5"/>
@@ -1656,15 +1661,11 @@
 </button>
 
 <script>
-  /* === Год и дата в футере === */
   var yearEl = document.getElementById('year');
   var updEl = document.getElementById('updated');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
   if (updEl) updEl.textContent = new Date().toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
 
-  /* === Динамическая высота шапки ===
-     Нужна для двухэтажной шапки на мобильных.
-     Также используется для position:fixed .mobile-nav и scroll-padding-top. */
   function updateHeaderHeight() {
     var header = document.querySelector('.header');
     if (header) {
@@ -1676,7 +1677,6 @@
   window.addEventListener('DOMContentLoaded', updateHeaderHeight);
   updateHeaderHeight();
 
-  /* === Переключение темы === */
   var rootEl = document.documentElement;
   var themeBtn = document.getElementById('themeToggle');
   if (themeBtn) {
@@ -1688,7 +1688,6 @@
     });
   }
 
-  /* === Копирование текста в буфер === */
   function fallbackCopy(text, callback) {
     var ta = document.createElement('textarea');
     ta.value = text;
@@ -1713,7 +1712,6 @@
     }
   }
 
-  /* === Кнопки копирования email/ник в контактах === */
   document.querySelectorAll('.copy-btn').forEach(function(btn) {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
@@ -1732,7 +1730,6 @@
     });
   });
 
-  /* === Кнопка «Скопировать ссылку на это резюме» === */
   document.querySelectorAll('.copy-link-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var name = btn.getAttribute('data-resume') || 'pm';
@@ -1752,7 +1749,6 @@
     });
   });
 
-  /* === Кнопка «Наверх» === */
   var toTopBtn = document.getElementById('toTop');
   if (toTopBtn) {
     toTopBtn.addEventListener('click', function() {
@@ -1763,7 +1759,6 @@
     }, { passive: true });
   }
 
-  /* === Переключение между резюме === */
   var tabs = document.querySelectorAll('.segmented [data-tab]');
   var resumes = document.querySelectorAll('.resume[data-resume]');
   var navLinks = document.querySelectorAll('.nav a[data-target], .mobile-nav a[data-target]');
@@ -1806,7 +1801,6 @@
     });
   });
 
-  /* === Мобильное меню === */
   function openMobileNav() {
     if (!mobileNav) return;
     mobileNav.classList.add('open');
@@ -1831,7 +1825,6 @@
     });
   }
 
-  /* === Подсветка активной ссылки в навигации === */
   function updateActiveNav() {
     var current = document.querySelector('.resume:not([hidden])');
     if (!current) return;
@@ -1847,7 +1840,6 @@
   }
   window.addEventListener('scroll', updateActiveNav, { passive: true });
 
-  /* === Анимация появления блоков === */
   var io = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
       if (e.isIntersecting) {
@@ -1869,7 +1861,6 @@
     });
   }
 
-  /* === Инициализация === */
   var initial = location.hash === '#support' ? 'support' : 'pm';
   showResume(initial, false);
   observeReveals();
