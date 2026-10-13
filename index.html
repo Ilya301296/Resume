@@ -64,7 +64,7 @@
 
   *, *::before, *::after { box-sizing: border-box; }
   [hidden] { display: none !important; }
-  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); }
   body {
     margin: 0;
     font-family: var(--font);
@@ -105,6 +105,7 @@
   .header-inner {
     display: flex; align-items: center; gap: 12px;
     height: var(--header-h);
+    flex-wrap: wrap;
   }
   .logo {
     font-weight: 800; font-size: 15px;
@@ -124,7 +125,7 @@
   @media (min-width: 640px) { .logo-text { display: inline; } }
 
   .segmented {
-    display: none;
+    display: inline-flex;
     margin: 0 auto;
     padding: 3px;
     border-radius: 999px;
@@ -132,7 +133,6 @@
     border: 1px solid var(--border);
     gap: 2px;
   }
-  @media (min-width: 900px) { .segmented { display: inline-flex; } }
   .segmented button {
     border: 0; background: transparent;
     color: var(--text-muted);
@@ -159,7 +159,6 @@
   }
   .nav a:hover { color: var(--text); background: var(--bg-soft); text-decoration: none; }
   .nav a.active { color: var(--accent); background: var(--accent-soft); }
-  @media (max-width: 1080px) { .nav { display: none; } }
 
   .header-controls { display: flex; gap: 6px; align-items: center; }
 
@@ -180,8 +179,33 @@
   html[data-theme="dark"] .icon-moon { display: none; }
 
   .burger { display: none; }
-  @media (max-width: 1080px) { .burger { display: inline-flex; } }
 
+  /* Планшет и десктоп-мобильный: скрываем длинную навигацию, показываем бургер */
+  @media (max-width: 1080px) {
+    .nav { display: none; }
+    .burger { display: inline-flex; }
+
+    .header-inner {
+      height: auto;
+      padding: 10px 0 12px;
+      row-gap: 10px;
+    }
+    .logo { order: 1; }
+    .header-controls { order: 2; margin-left: auto; }
+    .segmented {
+      order: 3;
+      width: 100%;
+      margin: 0;
+    }
+    .segmented button {
+      flex: 1;
+      text-align: center;
+      font-size: 13px;
+      padding: 9px 10px;
+    }
+  }
+
+  /* === МОБИЛЬНОЕ МЕНЮ (только навигация по разделам) === */
   .mobile-nav {
     display: none;
     position: fixed; top: var(--header-h); left: 0; right: 0; bottom: 0;
@@ -191,8 +215,6 @@
     overflow-y: auto;
   }
   .mobile-nav.open { display: block; }
-  .mobile-nav .segmented { display: inline-flex; margin: 0 0 16px; width: 100%; }
-  .mobile-nav .segmented button { flex: 1; }
   .mobile-nav a {
     display: block; padding: 14px 4px;
     font-size: 17px; font-weight: 600; color: var(--text);
@@ -207,11 +229,45 @@
     font-size: clamp(28px, 4.6vw, 42px);
     font-weight: 800; letter-spacing: -0.03em; margin-bottom: 14px;
   }
+  .role-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
   .hero .role {
     display: inline-block; font-size: 14px; font-weight: 600;
     color: var(--accent); background: var(--accent-soft);
-    padding: 6px 12px; border-radius: 999px; margin-bottom: 20px;
+    padding: 6px 12px; border-radius: 999px;
   }
+  .copy-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-soft);
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .copy-link-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .copy-link-btn svg { width: 14px; height: 14px; }
+  .copy-link-btn.copied {
+    background: var(--accent);
+    color: var(--accent-contrast);
+    border-color: var(--accent);
+  }
+
   .hero .lead {
     font-size: clamp(15.5px, 1.6vw, 17px);
     color: var(--text-muted); max-width: 640px; margin-bottom: 26px;
@@ -524,7 +580,8 @@
     .cta-row,
     .header-controls,
     .to-top,
-    .copy-btn { display: none !important; }
+    .copy-btn,
+    .copy-link-btn { display: none !important; }
 
     .reveal,
     .reveal.visible {
@@ -611,10 +668,6 @@
 </header>
 
 <div class="mobile-nav" id="mobileNav">
-  <div class="segmented" role="tablist" aria-label="Переключение резюме">
-    <button type="button" data-tab="pm" role="tab">Менеджер проектов</button>
-    <button type="button" data-tab="support" role="tab">Руководитель поддержки</button>
-  </div>
   <a href="#pm-about" data-target="about">Обо мне</a>
   <a href="#pm-experience" data-target="experience">Опыт</a>
   <a href="#pm-skills" data-target="skills">Навыки</a>
@@ -631,7 +684,16 @@
   <section class="hero container">
     <div class="hero-grid">
       <div>
-        <span class="role">Менеджер проектов · IT Project Manager</span>
+        <div class="role-row">
+          <span class="role">Менеджер проектов · IT Project Manager</span>
+          <button type="button" class="copy-link-btn" data-resume="pm" aria-label="Скопировать ссылку на это резюме" title="Скопировать ссылку">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+            <span>Ссылка</span>
+          </button>
+        </div>
         <h1>Технический бэкграунд<br>плюс управление проектами</h1>
         <p class="lead">
           Более 7 лет в ИТ. На всём протяжении совмещаю техническую работу с управленческой:
@@ -1036,7 +1098,7 @@
           </button>
         </div>
 
-        <a class="contact-card" href="https://max.ru/u/f9LHodD0cOILKTJcUqqZ446Ze3kP_NZiMzLVxfxic3kuwb-QMLHAIKSR4yBs" target="_blank" rel="noopener">
+        <a class="contact-card" href="https://max.ru/u/f9LHodD0cOLkB_urzuAIDfxdPh1Ysf0VZlRmkWRmV5HWR9pjNCQNwsq5saI" target="_blank" rel="noopener">
           <span class="contact-ico">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="3" y="3" width="18" height="18" rx="5"/>
@@ -1100,7 +1162,16 @@
   <section class="hero container">
     <div class="hero-grid">
       <div>
-        <span class="role">Руководитель технической поддержки · Team Lead</span>
+        <div class="role-row">
+          <span class="role">Руководитель технической поддержки · Team Lead</span>
+          <button type="button" class="copy-link-btn" data-resume="support" aria-label="Скопировать ссылку на это резюме" title="Скопировать ссылку">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+            <span>Ссылка</span>
+          </button>
+        </div>
         <h1>Технический бэкграунд<br>плюс управление поддержкой</h1>
         <p class="lead">
           Более 7 лет в ИТ. Техническая работа идёт параллельно с управленческой:
@@ -1511,7 +1582,7 @@
           </button>
         </div>
 
-        <a class="contact-card" href="https://max.ru/u/f9LHodD0cOILKTJcUqqZ446Ze3kP_NZiMzLVxfxic3kuwb-QMLHAIKSR4yBs" target="_blank" rel="noopener">
+        <a class="contact-card" href="https://max.ru/u/f9LHodD0cOLkB_urzuAIDfxdPh1Ysf0VZlRmkWRmV5HWR9pjNCQNwsq5saI" target="_blank" rel="noopener">
           <span class="contact-ico">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect x="3" y="3" width="18" height="18" rx="5"/>
@@ -1585,11 +1656,27 @@
 </button>
 
 <script>
+  /* === Год и дата в футере === */
   var yearEl = document.getElementById('year');
   var updEl = document.getElementById('updated');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
   if (updEl) updEl.textContent = new Date().toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
 
+  /* === Динамическая высота шапки ===
+     Нужна для двухэтажной шапки на мобильных.
+     Также используется для position:fixed .mobile-nav и scroll-padding-top. */
+  function updateHeaderHeight() {
+    var header = document.querySelector('.header');
+    if (header) {
+      document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+    }
+  }
+  window.addEventListener('resize', updateHeaderHeight);
+  window.addEventListener('load', updateHeaderHeight);
+  window.addEventListener('DOMContentLoaded', updateHeaderHeight);
+  updateHeaderHeight();
+
+  /* === Переключение темы === */
   var rootEl = document.documentElement;
   var themeBtn = document.getElementById('themeToggle');
   if (themeBtn) {
@@ -1601,6 +1688,7 @@
     });
   }
 
+  /* === Копирование текста в буфер === */
   function fallbackCopy(text, callback) {
     var ta = document.createElement('textarea');
     ta.value = text;
@@ -1615,37 +1703,56 @@
     document.body.removeChild(ta);
   }
 
-  function copyText(btn) {
-    var text = btn.getAttribute('data-copy');
-    if (!text) return;
-
-    var onDone = function() {
-      var original = btn.innerHTML;
-      btn.classList.add('copied');
-      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
-      setTimeout(function() {
-        btn.classList.remove('copied');
-        btn.innerHTML = original;
-      }, 1500);
-    };
-
+  function doCopy(text, onSuccess) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(onDone).catch(function() {
-        fallbackCopy(text, onDone);
+      navigator.clipboard.writeText(text).then(onSuccess).catch(function() {
+        fallbackCopy(text, onSuccess);
       });
     } else {
-      fallbackCopy(text, onDone);
+      fallbackCopy(text, onSuccess);
     }
   }
 
+  /* === Кнопки копирования email/ник в контактах === */
   document.querySelectorAll('.copy-btn').forEach(function(btn) {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
-      copyText(btn);
+      var text = btn.getAttribute('data-copy');
+      if (!text) return;
+      doCopy(text, function() {
+        var original = btn.innerHTML;
+        btn.classList.add('copied');
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+        setTimeout(function() {
+          btn.classList.remove('copied');
+          btn.innerHTML = original;
+        }, 1500);
+      });
     });
   });
 
+  /* === Кнопка «Скопировать ссылку на это резюме» === */
+  document.querySelectorAll('.copy-link-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var name = btn.getAttribute('data-resume') || 'pm';
+      var base = location.origin + location.pathname;
+      base = base.replace(/\/index\.html$/, '/').replace(/\/$/, '');
+      var url = base + '/#' + name;
+
+      doCopy(url, function() {
+        var original = btn.innerHTML;
+        btn.classList.add('copied');
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg><span>Скопировано</span>';
+        setTimeout(function() {
+          btn.classList.remove('copied');
+          btn.innerHTML = original;
+        }, 1800);
+      });
+    });
+  });
+
+  /* === Кнопка «Наверх» === */
   var toTopBtn = document.getElementById('toTop');
   if (toTopBtn) {
     toTopBtn.addEventListener('click', function() {
@@ -1656,6 +1763,7 @@
     }, { passive: true });
   }
 
+  /* === Переключение между резюме === */
   var tabs = document.querySelectorAll('.segmented [data-tab]');
   var resumes = document.querySelectorAll('.resume[data-resume]');
   var navLinks = document.querySelectorAll('.nav a[data-target], .mobile-nav a[data-target]');
@@ -1687,6 +1795,7 @@
     }
 
     if (scrollTop) window.scrollTo({ top: 0, behavior: 'auto' });
+    updateHeaderHeight();
     requestAnimationFrame(revealVisible);
   }
 
@@ -1697,6 +1806,7 @@
     });
   });
 
+  /* === Мобильное меню === */
   function openMobileNav() {
     if (!mobileNav) return;
     mobileNav.classList.add('open');
@@ -1721,6 +1831,7 @@
     });
   }
 
+  /* === Подсветка активной ссылки в навигации === */
   function updateActiveNav() {
     var current = document.querySelector('.resume:not([hidden])');
     if (!current) return;
@@ -1736,6 +1847,7 @@
   }
   window.addEventListener('scroll', updateActiveNav, { passive: true });
 
+  /* === Анимация появления блоков === */
   var io = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
       if (e.isIntersecting) {
@@ -1757,6 +1869,7 @@
     });
   }
 
+  /* === Инициализация === */
   var initial = location.hash === '#support' ? 'support' : 'pm';
   showResume(initial, false);
   observeReveals();
@@ -1770,4 +1883,4 @@
   });
 </script>
 </body>
-</html>
+              </html>
