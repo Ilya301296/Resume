@@ -1659,6 +1659,7 @@
 
 <footer class="container">
   <div>© <span id="year"></span> Илья Онищенко</div>
+  <div>Просмотров: <span id="views">…</span></div>
   <div>Резюме обновлено: <span id="updated"></span></div>
 </footer>
 
@@ -1881,6 +1882,17 @@
     if (h.indexOf('support') === 0) showResume('support', false);
     else if (h.indexOf('pm') === 0) showResume('pm', false);
   });
+</script>
+
+<!-- SiteViews: счётчик просмотров -->
+<script
+  src="https://unpkg.com/siteviews@2.1.2/dist/index.js"
+  type="application/javascript"
+  scriptfor="siteviews"
+  project-name="ilya-onishchenko-resume"
+  output-element-id="views"
+  refresh="300"
+  suppressLogs>
 </script>
 </body>
 </html>
