@@ -446,18 +446,6 @@
     color: var(--text-soft); font-size: 12.5px;
     display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
   }
-  .footer-counter {
-    display: inline-flex;
-    align-items: center;
-    opacity: 0.75;
-    transition: opacity .15s ease;
-  }
-  .footer-counter:hover { opacity: 1; }
-  .footer-counter img {
-    height: 20px;
-    width: auto;
-    display: block;
-  }
 
   section.block:target {
     animation: sectionHighlight 1.6s ease;
@@ -1671,13 +1659,6 @@
 
 <footer class="container">
   <div>© <span id="year"></span> Илья Онищенко</div>
-  <a class="footer-counter" href="https://hits.ilya-onishchenko.ru/main.svg?action=view" target="_blank" rel="noopener" aria-label="Статистика посещений">
-    <img
-      src="https://hits.ilya-onishchenko.ru/main.svg?action=hit&title=Просмотров"
-      referrerpolicy="unsafe-url"
-      alt="Счётчик посещений"
-    />
-  </a>
   <div>Резюме обновлено: <span id="updated"></span></div>
 </footer>
 
